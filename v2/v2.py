@@ -33,23 +33,3 @@ korB = bild1 - mwb
 cv2.imwrite("korBv2.png", korB)
 resWb = mww - mwb
 cv2.imwrite("resWbv3.png", resWb)
-
-#
-#for i in range(1,11):
-#    white.append(cv2.imread('bildweiss'+str(i)+'.png'))
-#wmw = np.zeros(data[0].shape)
-#for i in range(0,480):
-#    for j in range(0,640):
-#        for k in range(0,10):
-#            wmw[i,j] += data[k][i,j]
-#for i in range(0,480):
-#    for j in range(0,640):
-#        wmw[i,j] /= 10
-# 
-#
-#val = 0
-#for i in a:
-#    val += i*i
-#print (math.sqrt(val))
-#a = (1 + 1j)
-#print(np.absolute(a))
