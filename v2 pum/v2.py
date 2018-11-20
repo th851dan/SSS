@@ -41,27 +41,21 @@ def konmaxb(pixel):
 def konmax(pixel):
     return (pixel / (np.max(pixel) - np.min(pixel))) * 255
 
-mwb = mw('bildschwarz')
-#print(konmax(mwb))
-mww = mw('bildweiss')
-#print(konmax(mww))
-
-cv2.imwrite("kontrastmaxBlack.png", konmaxb(mwb))
-cv2.imwrite("kontrastmaxWhite.png", konmax(mww-mwb))
-
-#normw = norm(konmax(mww-mwb))
-#print(normw)
-a = np.linalg.norm(mww-mwb)
-print(a)
-
-#korB = ((bild1 - konmax(mwb)) / (np.max(bild1) - np.min(bild1))) * 255
-#cv2.imwrite("kontrastmaxbild.png", korB)
-#resWb = ((mww - mwb) / (np.max(mww) - np.min(mww))) * 255
-#cv2.imwrite("kontrastmaxWhite.png", resWb)
-
-korW = (bild1 - mwb) / a
-cv2.imwrite("Bild1_korrekt.png", a)
+mwb = mw('bildschwarz') #Mittelwert von Dunkelbildern
 cv2.imwrite("mBlack.png", mwb)
+cv2.imwrite("kontrastmaxBlack.png", konmaxb(mwb)) #Ausgabe kontrastmaximiertes Dunkelbildes
+
+korBv2 = bild1 - mwb
+cv2.imwrite("korrigiertes Bild v2.png", korBv2)
+
+mww = mw('bildweiss') #Mittelwert von Weißbildern
+cv2.imwrite("mWhite.png", mww)
+cv2.imwrite("kontrastmaxWhite.png", konmax(mww-mwb)) #Ausgabe kontrastmaximiertes Weißbildes
+normW = (mww-mwb)/np.mean(mww-mwb) # nomiertes Weißbild
+korW = korBv2 / normW
+cv2.imwrite("Bild1_korrekt.png", korW)
+
+
 
 
 
