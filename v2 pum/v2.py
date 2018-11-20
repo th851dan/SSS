@@ -26,14 +26,6 @@ def mw(bild):
         for j in range(0,640):
             mw[i,j] /= 10
     return mw
-
-def norm(list):
-    val = 0
-    for i in list:
-        val += i*i
-    betrag = np.sqrt(val)
-    normlist = list / betrag
-    return normlist
     
 def konmaxb(pixel):
     return ((pixel - np.min(pixel)) / (np.max(pixel) - np.min(pixel))) * 255
