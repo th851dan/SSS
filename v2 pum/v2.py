@@ -10,7 +10,7 @@ import cv2
 
 bild1 = cv2.imread('bild1.png')
 
-def mw(bild):
+def mw(bild): #Bildern einlesen und Mittelwert für jede Pixel bilden
     data = []
     datad = []
     for i in range(1,11):
