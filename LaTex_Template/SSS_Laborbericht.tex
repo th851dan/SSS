@@ -154,8 +154,8 @@
 \newcommand{\strAuthorBEmail}{th851dan@htwg-konstanz.de}
 %\newcommand{\strAuthorCEmail}{cauthor@htwg-konstanz.de}
 % Versuchsbeschreibung 
-\newcommand{\strTopic}{VERSUCH NAME}
-\newcommand{\strAbstract}{Zur Überprüfung der Qualität der digitalen Kamera, nehmt man eine stufenformige Grauwertverlauf auf, die innerhalb jeder Stufe gleiche Wert haben sollte.  Mit Hilfe con Python paket OpenCV-Python kann man die Belichtungsparameter der Kamera ändern und das Bild in verlustfreien png format aufnehmen und die Information(RGB-Werte)  von Bildpunkte auslesen. Damit kann man mit Dunkelbild und Weißbild Bildfehlern und Sensorrauschen suchen.}
+\newcommand{\strTopic}{KALIBRIERUNG VON DIGITALKAMERAS}
+\newcommand{\strAbstract}{Zur Überprüfung der Qualität der Digitalkamera, nimmt man einen stufenförmigen Grauwertverlauf auf, die innerhalb jeder Stufe gleichen Wert haben sollte.  Mithilfe des Python-Pakets OpenCV kann man die Belichtungsparameter der Kamera ändern und das Bild im verlustfreien Format png aufnehmen und die Informationen(RGB-Werte) von Bildpunkte auslesen. Damit kann man mit Dunkelbild und Weißbild Bildfehler und Sensorrauschen suchen und beseitigen.}
 % hyperref customization
 \hypersetup{
 	pdftitle     = {\strTopic}, % title
@@ -207,10 +207,6 @@
 %
 \include{preface/listoftables}
 
-%
-% Listingverzeichnis
-%
-\include{preface/lstlistoflistings}
 
 
 %--------------------------
@@ -227,111 +223,204 @@
 % CHAPTER Versuch 1
 %
 \chapter{Aufnahme und Analyse eines Grauwertkeiles}
-\label{chap:VERSUCH_1}
 
 \section{Fragestellung, Messprinzip, Aufbau, Messmittel}
 \label{chap:VERSUCH_1_FRAGESTELLUNG}
-eine Pyton Skript schreiben (siehe Code 1) die dass Bild mit Hilfe der OpenCV aufnehmen. 
-die Position und die Distanz zwischen der Digitale Kamera (in diesem fall Webcam) und das Grauwertkeil so einzustellen, dass die möglichst komplette Grauwertverlauf in das Bild befindet. Dabei sollte die Grauwertstufen parallel zu Bildränder verlaufen.
-Mit OpenCV die Belichtungparameter einstellen, dass die weiße Bereich des Bild kein Überlauft hat (maxmalwert nicht 255) da sie Information in Überlauf verloren gehen. Diese Einstellung (Distanz und Belichtungsparameter) benutzt man für alle folgenden Versuche. die aufgenemene Bild(Farbbild) in ein Grauwertbild umwandeln mit cv2.cvtColor(). 
-die Grauwertverlauf in 5 Grauwertstufe teilen und als Bild speichern. Von jeder Grauwertstufe sind die Mittelwert und Standard abweichung zu ermitteln.
+Ein Python Skript schreiben (s. Anhang A.1.1), welches das Objekt mithilfe der OpenCV aufnehmen. Die Position und die Distanz zwischen der Digitalkamera (in diesem Fall Webcam) und das Grauwertkeil so einzustellen, dass sich die möglichst kompletten Grauwertverlauf in das Bild befindet. Dabei sollte die Grauwertstufen parallel zu den Bildrändern verlaufen.
+Mit OpenCV die Belichtungsparameter einzustellen, so dass den weißen Bereich des Bildes keinen Überlauf hat (255 nicht überschreiten), da die Informationen beim Überlauf verloren gehen. Diese Einstellung (Distanz und Belichtungsparameter) benutzt man für alle durchzuführende Versuche. Das aufgenommene Bild(Farbbild) in ein Grauwertbild mit cv2.cvtColor() umwandeln. 
+Der Grauwertverlauf in 5 Grauwertstufe aufteilen und als eigene Bilder speichern. Von jeder Grauwertstufe sind der Mittelwert und Standardabweichung zu ermitteln.(s. Anhang A.1.2)
 \begin{figure}[H]
 	\centering\small
 	\includegraphics[width=11cm]{versuch_aufbau.jpg}
 	\caption{Versuchaufbau}
 \end{figure}
-\section{Messwerte}
-\label{chap:VERSUCH_1_MESSWERTE}
-
-\section{Auswertung}
-\label{chap:VERSUCH_1_AUSWERTUNG}
 \begin{table}[H]
+\centering
 \begin{tabular}{|l|l|}
 \hline
 \multicolumn
-{1}{|c|}{framewidth}	& \multicolumn{1}{c|}{640}			\\ \hline
+{1}{|c|}{Belichtungsparameter}	& \multicolumn{1}{c|}{}		\\ \hline
+framewidth						&$640$					\\ \hline
 frameheight						&$480$					\\ \hline
 brightness						&$130$					\\ \hline
-contrast							&$30$					\\ \hline
+contrast						&$30$					\\ \hline
 saturation						&$64$					\\ \hline
-gain								&$0$					\\ \hline
+gain							&$0$					\\ \hline
 exposure						&$-4$					\\ \hline
 white balance					&$4980$				\\ \hline
 \end{tabular}
 \caption{Kameraeinstellung}
 \end{table}
-
-\textit{Mittelwert: }	$\bar{x} = \frac{1}{n}\sum_{i=1}^nx_i$
-\textit{Standardabweichung: }$s=\sqrt{\frac{1}{n-1}\sum_{i=1}^n{(\bar{x}-x_i)}^2}$
+\section{Messwerte}
+\label{chap:VERSUCH_1_MESSWERTE}
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=11cm]{bild1.png}
+	\caption{Das umgewandelte Grauwertkeilbild}
+\end{figure}
+\section{Auswertung}
+\label{chap:VERSUCH_1_AUSWERTUNG}
+Den Code für die Aufteilung und Berechnung bitte den Anhang A.1.2 sehen.\\
+\textit{Mittelwert: }	$$\bar{x} = \frac{1}{n}\sum_{i=1}^nx_i$$
+\textit{Standardabweichung: }$$s=\sqrt{\frac{1}{n-1}\sum_{i=1}^n{(\bar{x}-x_i)}^2}$$
 \begin{table}[H]
+\centering
 \begin{tabular}{|l|l|l|}
 \hline
 \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{Mittelwert} & \multicolumn{1}{c|}{Standardabweichung}\\ \hline
-Grauwertstufen 1						&$212.504769$		&$5.643870$					\\ \hline
-Grauwertstufen 2						&$170.716981$		&$6.199961$					\\ \hline
-Grauwertstufen 3						&$128.680235$		&$4.864795$					\\ \hline
-Grauwertstufen 4						&$83.420426$		&$4.632894$					\\ \hline
-Grauwertstufen 5						&$41.393944$		&$2.515164$					\\ \hline
+Grauwertstufe 1						&$212.504769$		&$5.643870$					\\ \hline
+Grauwertstufe 2						&$170.716981$		&$6.199961$					\\ \hline
+Grauwertstufe 3						&$128.680235$		&$4.864795$					\\ \hline
+Grauwertstufe 4						&$83.420426$		&$4.632894$					\\ \hline
+Grauwertstufe 5						&$41.393944$		&$2.515164$					\\ \hline
 \end{tabular}
-\caption{Mittelwert und Standard abweichung von Grauwertstufen (Grauwertstufen 1 die hellste bis Grauwertstufen 5 die dunkelste)}
+\caption{Mittelwert und Standardabweichung von Grauwertstufen (Grauwertstufe 1 die hellste bis Grauwertstufe 5 die dunkelste)}
 \end{table}
 
 \section{Interpretation}
 \label{chap:VERSUCH_1_INTERPRETATION}
+Das OpenCV-Paket liest das Bild als Rot-Grün-Blau-Werte(RGB) von jedem Pixel unter eine Matrix ein, deswegen umso dunkler das Keil ist, umso geringer sind die Werte(d.h. (0,0,0) ist komplett schwarz bzw. (255,255,255) komplett weiß) und da das Farbbild in Graubild umgewandelt wurde sind die RGB-Werte jedes Pixels immer gleich. Es folgt darauf, dass die Mittelwerte absteigen, je nach der Helligkeit der Stufen.
 
+Aus den berechneten Standardabweichungen kann man interpretieren, dass die mit größeren RGB-Werten Grauwertstufe mehr variieren als die mit kleineren. 
+Bei Grauwertstufe 1 haben wir kleineres Unterbild(weniger Pixel) als anderen Stufe, deshalb zu kleinere Standardabweichung führt.  Die dunklere Grauwertstufen haben auch kleineren Standardabweichung, weil der Unterschied von kleineren Wert kleiner sind als größeren Wert.
 %
 % CHAPTER Versuch 2
 %
-\chapter{Versuch 2}
-\label{chap:VERSUCH_2}
-
+\chapter{Aufnahme eines Dunkelbildes}
 \section{Fragestellung, Messprinzip, Aufbau, Messmittel}
-\label{chap:VERSUCH_2_FRAGESTELLUNG}
+Um das Schwarzbild aufzunehmen, sollte das Objektiv der Kamera abgedeckt werden, sodass das Bild komplett schwarz wird. Die Belichtungsparameter und Distanz sind gleich wie das erste Versuch einzustellen.
 
+Um das thermische Ausleserauschen zu eliminieren, werden 10 Bilder aufgenommen und daraus berechnet ein pixelweisen Mittelwert(ein ganzes Bild von Mittelwert). Es bleibt nur noch der Offset. bzw der Dunkelstrom jedes Pixels übrig. Das Mittelwertbild ist das Dunkelbild.
+
+Das Eingabebild wird durch Subtraktion von Dunkelbild korrigiert.
 \section{Messwerte}
 \label{chap:VERSUCH_2_MESSWERTE}
-
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=11cm]{bildschwarz1.png}
+	\caption{Ein aufgenommenes Beispielschwarzbild}
+\end{figure}
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=11cm]{kontrastmaxBlack.png}
+	\caption{Kontrastmaximierte Darstellung des Dunkelbildes}
+\end{figure}
 \section{Auswertung}
-\label{chap:VERSUCH_2_AUSWERTUNG}
 
+\label{chap:VERSUCH_2_AUSWERTUNG}
+Um das kontramaximierte Bild darzustellen, verwendet man diese Formel für jeden Pixel:
+	$$\frac{pixel - min}{max-min}\cdot255$$
+	min ist der minimalwert des Arrays/Bildes, max der maximale.
+	
+Das Dunkelbild mit einem Pythonskript einlesen, von dem Eingabebild subtrahiert und bekommt man das Bild:
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=11cm]{korrigiertesBildv2.png}
+	\caption{Korrigiertes Eingabebild nach dem Subtrahieren}
+\end{figure}
+
+Den Code davon bitte den Anhang A.1.3 sehen.
 \section{Interpretation}
 \label{chap:VERSUCH_2_INTERPRETATION}
-
+Das berechnete Dunkelbild hat die Werte ungefähr 10 d.h. dass der Offset der von Fertigungstoleranzen und Wärmezufuhr entsteht beträgt 10. Da das Eingabebild von Dunkelbild abgezogen wurde, sieht das korrigierte Bild dunkler aus.
 %
 % CHAPTER Versuch 3
 %
-\chapter{Versuch 3}
-\label{chap:VERSUCH_3}
+\chapter{Aufnahme eines Weißbildes}
+
 
 \section{Fragestellung, Messprinzip, Aufbau, Messmittel}
-\label{chap:VERSUCH_3_FRAGESTELLUNG}
-
+Ein leeres weißes Blatt Papier unter dieselbe Bedingungen wie vorherige Versuche einstellen und 10 Weißbilder aufnehmen zur Elimination des thermischen Rauschens,
+das Mittelwertbild wie vorher berechnen. Danach muss man noch das Dunkelbild von dem Mittelwertbild subtrahieren.
+Das resultierende Weißbild sollte normiert werden, sodass sein Mittelwert 1 ist, damit das Eingangbild durch Dividieren weiter korrigiert werden könnte. 
 \section{Messwerte}
 \label{chap:VERSUCH_3_MESSWERTE}
-
+\begin{figure}[H]
+\centering\small
+\fbox{
+	\includegraphics[width=11cm]{bildweiss1.png}
+	}
+	\caption{Ein aufgenommenes Beispielweißbild}
+\end{figure}
+\begin{figure}[H]
+\centering\small
+\fbox{
+	\includegraphics[width=11cm]{kontrastmaxWhite.png}
+	}
+	\caption{Kontrastmaximierte Darstellung des Weißbildes}
+\end{figure}
 \section{Auswertung}
 \label{chap:VERSUCH_3_AUSWERTUNG}
-
+Um das kontramaximierte Bild darzustellen, verwendet man diese Formel für jeden Pixel:
+	$$\frac{pixel}{max-min}\cdot255$$
+	min ist der minimalwert des Arrays/Bildes, max der maximale.
+	
+	Da man die Korrektur mit dem Schwarzbild gemacht hat, ist die Formel anders als die von dem 2. Versuch (pixel - min wird pixel).
+	
+	Um das Mittelwertbild zu normieren, verwendet man die Formel pixelweise:
+	$$normW = \frac{korrigiertes\:Weissbild}{Mittelwert\:von\:dem\:korrigierten\:Weissbild}$$
+dadurch bekommt ein neues Bild mit Mittelwert 1.
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=11cm]{normW.png}
+	\caption{Normiertes Weißbild}
+\end{figure}
+Den Code davon bitte den Anhang A.1.3 sehen.
 \section{Interpretation}
 \label{chap:VERSUCH_3_INTERPRETATION}
+Da der Mittelwert von dem normierten Bild 1 ist, sollte das resultierte Bild fast komplett schwarz sein. 
 
-%
+Normalerweise hat das aufgenommene Bild immer eine Vignettierung(dunklere Ränder),die schwer zu erkennen(weil das Objekt eigene Farbwerte besitzt) und aufgrund der unterschiedliche Helligkeitsübertragung von der Optik der Kamera entstand. Mit Weißbild entdeckt man die Vignettierung leichter(weiße Farbe hat größere RGB-Werte -> Unterschied zwischen Ränder und andere Teile des Bildes besser erkennen).
 % CHAPTER Versuch 4
 %
-\chapter{Versuch 4}
+\chapter{Pixelfehler}
 \label{chap:VERSUCH_4}
 
 \section{Fragestellung, Messprinzip, Aufbau, Messmittel}
 \label{chap:VERSUCH_4_FRAGESTELLUNG}
+Dunkelbild auf dem Bildschirm auf stuck und hot pixels und  Weißbild auf dead pixels überprüfen.
+Das Bild des Grauwertkeils mit gleicher Methode im Versuch 3 korrigieren. Korrigiertes Bild in 5 Stufen wie im Versuch 1 aufteilen und überprüft ob es da Verbesserung gibt.
 
 \section{Messwerte}
 \label{chap:VERSUCH_4_MESSWERTE}
-
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=11cm]{mBlack.png}
+	\caption{Schwarzbild ohne gefundene hot und stuck pixels }
+\end{figure}
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=11cm]{mWhitev4.png}
+	\caption{Weißbild mit dead pixels Markierung}
+\end{figure}
 \section{Auswertung}
 \label{chap:VERSUCH_4_AUSWERTUNG}
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=11cm]{Bild1_korrekt.png}
+	\caption{Korrigiertes Bild}
+\end{figure}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{Mittelwert} & \multicolumn{1}{c|}{Standardabweichung}\\ \hline
+Grauwertstufe 1						&$205.782106$		&$3.502565$					\\ \hline
+Grauwertstufe 2						&$155.267629$		&$2.611407$					\\ \hline
+Grauwertstufe 3						&$113.188105$		&$2.333321$					\\ \hline
+Grauwertstufe 4						&$72.236704$		&$2.395081$					\\ \hline
+Grauwertstufe 5						&$33.400926$		&$2.649814$					\\ \hline
+\end{tabular}
+\caption{Mittelwert und Standardabweichung von Grauwertstufen (Grauwertstufe 1 die hellste bis Grauwertstufe 5 die dunkelste)}
+\end{table}
 
 \section{Interpretation}
 \label{chap:VERSUCH_4_INTERPRETATION}
+Bei der Markierung der hot und stuck pixels konnten gar keine Weißpunkte mit normalen Augen entdeckt werden. Das könnte bedeuten, dass die Qualität des Bildsensors noch in guten Zustand ist.
+
+Bei der Markierung der dead pixels sieht man 2 kleine Dunkelbereiche, von der wir behaupten können, dass es nicht nur aus dem Sensor kommt sondern auch wegen der Oberfläche von dem Objekt(nicht ganz homogene Fläche).
+
+Das korrigierte Bild ist dunkler geworden(da Mittelwert geringer ist). Die geringere Standardabweichung weist darauf hin, dass die Unterschied zwischen Pixels in jeder Grauwertstufe kleiner wird. D.h. wir haben eine bessere Bildqualität bekommen.
 %
 % CHAPTER Anhang
 %
@@ -348,12 +437,12 @@ Grauwertstufen 5						&$41.393944$		&$2.515164$					\\ \hline
 \section{Quellcode}
 \label{chap:APPENDIX_SOURCECODE}
 
-\subsection{Quellcode Versuch 1}
+\subsection{Quellcode Bild aufnehmen}
 \label{chap:APPENDIX_SOURCECODE_V1}
 \begin{lstlisting}[
 style=PYTHON,
 frame=single,
-caption=Quellcode für Kameraeinstellung und Bild aufnehmen,
+caption=,
 captionpos=b,
 label=lst:V1]
 import numpy as np
@@ -392,23 +481,119 @@ cap.release()
 cv2.destroyAllWindows()
 \end{lstlisting}
 
-\subsection{Quellcode Versuch 2}
+\subsection{Quellcode für Bildunterteilung und der Berechnung von Mittelwert und Standardabweichung}
 \label{chap:APPENDIX_SOURCECODE_V2}
+\begin{lstlisting}[
+style=PYTHON,
+frame=single,
+caption=,
+captionpos=b,
+label=lst:V2]
+import numpy as np
+import cv2
 
-\subsection{Quellcode Versuch 3}
+data = cv2.imread('bild1.png')
+print(data)
+keil1 = data[24:456,0:100]
+cv2.imwrite("keil1.png",keil1)
+
+keil2 = data[24:456,110:235]
+cv2.imwrite("keil2.png",keil2)
+
+keil3 = data[24:456,245:375]
+cv2.imwrite("keil3.png",keil3)
+
+keil4 = data[24:456,380:505]
+cv2.imwrite("keil4.png",keil4)
+
+keil5 = data[24:456,515:640]
+cv2.imwrite("keil5.png",keil5)
+
+data = cv2.imread('bild1_korrekt.png')
+keil1_k = data[24:456,0:100]
+cv2.imwrite("keil1_korrekt.png",keil1_k)
+
+keil2_k = data[24:456,110:235]
+cv2.imwrite("keil2_korrekt.png",keil2_k)
+
+keil3_k = data[24:456,245:375]
+cv2.imwrite("keil3_korrekt.png",keil3_k)
+
+keil4_k = data[24:456,380:505]
+cv2.imwrite("keil4_korrekt.png",keil4_k)
+
+keil5_k = data[24:456,515:640]
+cv2.imwrite("keil5_korrekt.png",keil5_k)
+
+def MuS(keil, n):
+    mittel = np.mean(keil)
+    std = np.std(keil)
+    print('Mittelwert'+ str(n) +':' + str(mittel))
+    print('std'+ str(n) +':' + str(std))
+MuS(keil1, 1)
+MuS(keil2, 2)
+MuS(keil3, 3)
+MuS(keil4, 4)
+MuS(keil5, 5)
+print('korrigierte Werte:--------------------------------------')
+MuS(keil1_k, 1)
+MuS(keil2_k, 2)
+MuS(keil3_k, 3)
+MuS(keil4_k, 4)
+MuS(keil5_k, 5)
+\end{lstlisting}
+
+\subsection{Quellcode zum Einlesen, Auslesen, Korrigieren des Eingangbild mithilfe des Weiß-und Schwarzbildes}
 \label{chap:APPENDIX_SOURCECODE_V3}
+\begin{lstlisting}[
+style=PYTHON,
+frame=single,
+caption=,
+captionpos=b,
+label=lst:V2]
+import numpy as np
+import cv2
 
-\subsection{Quellcode Versuch 4}
-\label{chap:APPENDIX_SOURCECODE_V4}
+bild1 = cv2.imread('bild1.png')
 
+def mw(bild): #Bildern einlesen und Mittelwert für jede Pixel bilden
+    data = []
+    datad = []
+    for i in range(1,11):
+        data.append(cv2.imread(str(bild) + str(i) + '.png'))
+    for i in data:
+        datad.append(i.astype(float))
+    mw = np.zeros(datad[0].shape)
+    for i in range(0,480):
+        for j in range(0,640):
+            for k in range(0,10):
+                mw[i,j] += datad[k][i,j]
+    for i in range(0,480):
+        for j in range(0,640):
+            mw[i,j] /= 10
+    return mw
+    
+def konmaxb(pixel):
+    return ((pixel - np.min(pixel)) / (np.max(pixel) - np.min(pixel))) * 255
 
-\section{Messergebnisse}
-\label{chap:APPENDIX_MEASUREMENT_SOURCE}
+def konmax(pixel):
+    return (pixel / (np.max(pixel) - np.min(pixel))) * 255
 
-%
-% Literaturverzeichnis
-%
-\include{appendix/bibliography}
+mwb = mw('bildschwarz') #Mittelwert von Dunkelbildern
+cv2.imwrite("mBlack.png", mwb)
+cv2.imwrite("kontrastmaxBlack.png", konmaxb(mwb)) #Ausgabe kontrastmaximiertes Dunkelbildes
+
+korBv2 = bild1 - mwb
+cv2.imwrite("korrigiertes Bild v2.png", korBv2)
+
+mww = mw('bildweiss') #Mittelwert von Weißbildern
+cv2.imwrite("mWhite.png", mww)
+cv2.imwrite("kontrastmaxWhite.png", konmax(mww-mwb)) #Ausgabe kontrastmaximiertes Weißbildes
+normW = (mww-mwb)/np.mean(mww-mwb) # nomiertes Weißbild
+cv2.imwrite("normW.png", normW)
+korW = korBv2 / normW
+cv2.imwrite("Bild1_korrekt.png", korW)
+\end{lstlisting}
 
 \end{document}
 %------------------------------------

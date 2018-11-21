@@ -44,7 +44,6 @@ mww = mw('bildweiss') #Mittelwert von Weißbildern
 cv2.imwrite("mWhite.png", mww)
 cv2.imwrite("kontrastmaxWhite.png", konmax(mww-mwb)) #Ausgabe kontrastmaximiertes Weißbildes
 normW = (mww-mwb)/np.mean(mww-mwb) # nomiertes Weißbild
-cv2.imwrite("normW.png", normW)
 korW = korBv2 / normW
 cv2.imwrite("Bild1_korrekt.png", korW)
 

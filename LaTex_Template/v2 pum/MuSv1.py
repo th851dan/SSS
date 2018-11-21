@@ -9,7 +9,6 @@ import numpy as np
 import cv2
 
 data = cv2.imread('bild1.png')
-print(data)
 keil1 = data[24:456,0:100]
 cv2.imwrite("keil1.png",keil1)
 
