@@ -1,4 +1,4 @@
-from TekTDS2000 import *
+#from TekTDS2000 import *
 import numpy as np
 import matplotlib.pyplot as plt
 #scope = TekTDS2000()
@@ -8,22 +8,19 @@ data = np.genfromtxt("harleybentonrichtig.csv", delimiter=",")
 datas = data[:,1]
 dataz = data[:,0]
 
-dataz1 = data [1000:1500,0:1]
-dataz2 = data [1750:,0:1]
+plt.plot(dataz,datas)
+plt.show()
 
-data1 = data [1000:1500,1:2]
-data2 = data [1750:,1:2]
+ind = np.argmax(datas)
+print(ind)
+ind2 = np.argmax(datas[ind + 1:]) + ind + 1
+print(ind2)
+periode = dataz[ind2]-dataz[ind]
+print(periode)
+gfre = 1/periode
+print(gfre)
 
-#plt.plot(dataz,data1)
-#plt.plot(dataz,data1)
-
-#ind = np.argmax(data1)
-#ind2 = np.argmax(data2)
-#periode = dataz2[ind2]-dataz1[ind]
-#gfre = 1/periode
-
-#plt.plot(data)
-sigdauer = 0.01 #10ms
+sigdauer = 0.005 #5ms
 ablen = len(data) #Signallänge
 abin = sigdauer / ablen #abtastinterval
 abfr = 1 / abin #abtastfrequenz
@@ -42,8 +39,8 @@ plt.ylabel('Amplitude($Unit$)')
 plt.plot(dataz,datas)
 
 schw = np.argmax(Y)
-print(np.max(Y))
-print(schw/(ablen * abin))
+print('Grundfrequenz: ' + str(schw/(ablen * abin)))
+print('Amplitude: ' + str(np.max(Y)))
 
 
 
