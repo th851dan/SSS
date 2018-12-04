@@ -5,11 +5,11 @@ def verschieb(hz):
     per = int((1/hz)/zeitUnit)
 
     ind1 = np.argmax(data1)
-    if ind1 - per<0:
+    if (ind1 - per) < 0:
        ind1 = ind1 + per
-    ind2 = ind1 - np.argmax(data2[ind1-per:ind1])
+    ind2 = ind1 - per + np.argmax(data2[ind1-per:ind1])
 
-    verschiebung = (ind2-ind1)*zeitUnit
+    verschiebung = (ind1-ind2)*zeitUnit
     print('Verschiebung: ' + str(verschiebung) + 's')
     return(verschiebung)
 
@@ -35,11 +35,12 @@ for i in index:
     
 print('---------------')   
 print(amp)
-plt.subplot(2,1,1)
+plt.title('Amptitudengang')
 plt.plot(index,amp)
+plt.show()
 print('---------------')
 print(phase)
-plt.subplot(2,1,2)
+plt.title('Phasengang')
 plt.plot(index,phase)
 plt.show()
 
@@ -55,6 +56,6 @@ plt.semilogx(index,db)
 plt.ylabel('Amplitude in dB')
 plt.subplot(2,1,2)
 plt.semilogx(index,Phasenwinkel)
-plt.ylabel('Phase in deg')
+plt.ylabel('Phase in rad/s')
 plt.xlabel('Frequenz in Hz')
 
