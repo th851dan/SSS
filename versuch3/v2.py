@@ -22,7 +22,7 @@ index = [100,200,300,400,500,700,850,1000,1200,1500,1700,
       2000,3000,4000,5000,6000,10000]
 c = 0
 for i in index:
-    data = np.genfromtxt(str(i) + "Hz.csv", delimiter=",")
+    data = np.genfromtxt(str(i) + "Hzk.csv", delimiter=",")
     data1 = data[:,1]
     data2 = data[:,2]
     dataz = data[:,0]
@@ -31,16 +31,20 @@ for i in index:
     amp[c] = np.max(data1)/np.max(data2)
 
     c = c + 1
+    plt.ylabel('Amplitude')
+    plt.xlabel('Zeit(s)')
     plt.plot(dataz,data1)
     plt.plot(dataz,data2)
+    if (i == 1000):
+        plt.savefig("gross1000Hzk.png")
     plt.show()
     
-print('---------------')   
+print('-------Amplitude--------')   
 print(amp)
 plt.title('Amptitudengang')
 plt.plot(index,amp)
 plt.show()
-print('---------------')
+print('-------Verschiebung--------')
 print(phase)
 plt.title('Phasengang')
 plt.plot(index,phase)
@@ -60,4 +64,4 @@ plt.subplot(2,1,2)
 plt.semilogx(index,Phasenwinkel)
 plt.ylabel('Phase in deg')
 plt.xlabel('Frequenz in Hz')
-
+plt.savefig("bodediagrammkl.png")
