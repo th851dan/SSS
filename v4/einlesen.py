@@ -1,45 +1,63 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+def fft(data,name):
+    plt.figure(figsize=(9,6))
+    Y = abs(np.fft.fft(data))
+    Y = Y[range(int(len(Y)/2))]
+    x = np.linspace(0,22050,22050,endpoint = True)
+    plt.xlabel('Frequenz($Hertz$)')
+    plt.ylabel('Amplitude($Unit$)')
+    plt.plot(x,abs(Y))
+    plt.savefig(str(name)+".png")
+    plt.show()
+    
+def winspek(data,name):
+    plt.figure(figsize=(9,6))
+    plt.xlabel('Frequenz($Hertz$)')
+    plt.ylabel('Amplitude($Unit$)')
+    st = np.std(data)
+    from scipy import signal
+    gfen = signal.gaussian(512, std = st * 4)
+    g = np.zeros(len(data))
+    fft = np.zeros(len(data))
+    x = np.linspace(0,22050,22050,endpoint = True)
+    for i in range(0,len(data),256):
+        if (i > len(data) - 512):
+            gfen = signal.gaussian(len(data)-i, std = st * 4)
+            g[i:] = data[i:] * gfen
+            fft += abs(np.fft.fft(g))
+            a = np.fft.fft(g)
+            a = a[range(int(len(a)/2))]
+            plt.plot(x,abs(a))
+            break
+        g[i:i+512] = data[i:i+512] * gfen
+        fft += abs(np.fft.fft(g))
+        a = np.fft.fft(g)
+        a = a[range(int(len(a)/2))]
+        plt.plot(x,abs(a))
+        g = np.zeros(len(data))
+    plt.savefig("spektrum_gesamter_windows"+str(name)+".png")
+    plt.show()
+    fft /= 171 #durch die Anzahl der Windows teilen
+    fft = fft[range(int(len(fft)/2))]
+    plt.figure(figsize=(9,6))
+    plt.xlabel('Frequenz($Hertz$)')
+    plt.ylabel('Amplitude($Unit$)')
+    plt.plot(x,fft)
+    plt.savefig("spektrum_mittel_windows"+str(name)+".png")
+    return fft
+    
 data = np.load('was_cooles_abgeschnitten.npy')
-plt.xlabel('Zeit i  n s')
+plt.figure(figsize=(9,6))
+plt.xlabel('Zeit in s')
 plt.ylabel('Amplitude')
 Zeit = []
 for i in range (len(data)):
     Zeit.append(1/len(data) * i)
-plt.plot(Zeit,data) 
-plt.savefig("v1.png")
+plt.plot(Zeit,data)
+plt.savefig("v1_abgeschnitten.png")
 plt.show()
+fft(data,"Amplitudenspektrum")
 
-#Y = abs(np.fft.fft(data))
-#schw = np.argmax(Y)
-#Y = Y[range(int(len(Y)/2))]
-#abfr = len(Y)
-#x = np.linspace(0,22050,22050,endpoint = True)
-#plt.xlabel('Frequenz($Hertz$)')
-#plt.ylabel('Amplitude($Unit$)')
-##x = np.linspace(0,abfr/2,1250,endpoint = True)
-#plt.plot(x,abs(Y))
-#plt.savefig("Spektrumv1.png")
-#plt.show()
-st = np.std(data)
-from scipy import signal
-gfen = signal.gaussian(512, std = st * 4)
-g = np.zeros(len(data));
-fft = []
-for i in range(0,len(data),256):
-    if (i > len(data) - 512):
-        break
-    g[i:i+512] = data[i:i+512] * gfen
-    plt.plot(range(len(data)),g)
-    g = np.zeros(len(data))
-    fft.append(np.fft.fft(g))
-plt.show()
-print(data(g))
-#g = data[0:512]*gfen
-#g2 = data[0:512]
-#g1 = data[255:767] * gfen
-#
-#plt.plot(g)
-#plt.plot(g2)
-#plt.plot(gfen)
+winspek(data,"v1")
