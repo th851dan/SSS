@@ -12,7 +12,7 @@ print('running')
 stream = p.open(format=FORMAT,channels=1,rate=SAMPLEFREQ, input=True,frames_per_buffer=FRAMESIZE)
 data = stream.read(NOFFRAMES*FRAMESIZE) 
 decoded = np.fromstring(data, 'Int16');
-string = 'anders_p'
+string = 'hoch4'
 np.save(string,decoded)
 sec = len(decoded) / SAMPLEFREQ
 

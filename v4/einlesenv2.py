@@ -24,15 +24,18 @@ data = np.load('hoch1abgeschnitten.npy')
 mit =  np.zeros(int(len(data)/2))
 a = ['hoch', 'tief', 'rechts', 'links']
 for j in a:
+    mit = 0
     for i in range(1,6):
-        data = np.load(str(j) + str(i) + 'abgeschnitten.npy')
+        data = np.load(j + str(i) + 'abgeschnitten.npy')
+        np.save('spek' + j + str(i),winspek(data))
         mit+=winspek(data)
     mit = mit/5
+    np.save('ref' + j,mit)
     plt.figure(figsize=(9,6))
     plt.xlabel('Frequenz($Hertz$)')
     plt.ylabel('Amplitude($Unit$)')
     plt.plot(mit)
-    plt.savefig("spektrum_mittel_windows"+str(j)+".png")
+    plt.savefig("spektrum_mittel_windows" + j + ".png")
     plt.show()
     
 
