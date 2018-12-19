@@ -154,8 +154,10 @@
 \newcommand{\strAuthorBEmail}{th851dan@htwg-konstanz.de}
 %\newcommand{\strAuthorCEmail}{cauthor@htwg-konstanz.de}
 % Versuchsbeschreibung 
-\newcommand{\strTopic}{FOURIERANALYSE UND AKUSTIK}
-\newcommand{\strAbstract}{Im ersten Versuch wird ein Musikinstrument(Mundharmonika) gespielt und die Ton aufgenommen, daraus kann man die Grundfrequenz bestimmen und die Beziehung zwischen Zeitbereich und Frequenzbereich eines Signals besser kennenlernen. Im zweiten Versuch werden mehrere generierten Signale mit verschiedenen Frequenzen aufgenommen und Phasengang(Verzögerung von Ausgangssignal) und Amplitudengang(Verhältnis zwischen die Amplitude von Eingang und Ausgangssignal) betrachtet.}
+\newcommand{\strTopic}{AUFBAU EINES EINFACHEN SPRACHERKENNER}
+\newcommand{\strAbstract}{\qquad In diesem Versuch wird ein einfacher Spracherkenner aufgebaut, welcher nur vier einfache Befehle "Hoch", "Tief", "Rechts" und "Links" erkennen kann. Damit diese Befehle erkannt werden, müssen die Referenzspektren erstellt werden und mit den aufgenommenen akustischen Signalen verglichen. 
+
+Um die Referenzspektren zu bekommen, muss jeder Befehl mehrmals aufgenommen, mit der Windowing-Methode zerlegen, die lokale Fouriertransformation in jedem Fenster durchführen und daraus den Mittelwert abbilden. Mit diesen Referenzspektren und der Mustererkennung durch Korrelation(Korrelationskoeffizienten nach Bravais-Pearson) können das gesprochen Wort erkannt werden.}
 % hyperref customization
 \hypersetup{
 	pdftitle     = {\strTopic}, % title
@@ -222,178 +224,136 @@
 %
 % CHAPTER Versuch 1
 %
-\chapter{Bestimmung der Tonhöhe eines akustischen Signals}
+\chapter{Fourieranalyse lang andauernder Signale}
 
 \section{Fragestellung, Messprinzip, Aufbau, Messmittel}
 \label{chap:VERSUCH_1_FRAGESTELLUNG}
 
-\qquad Auslesen des Signals von einer Mundharmonika aus dem Oszilloskop mithilfe der Python und der Toolbox TekTDS2000. Zum Aufnehmen wird ein dynamisches Mikrofon benötigt.
+\qquad Ein beliebige Spracheingabe wird über die Soundkarte mithilfe des Objektes audiorecorder aufgenommen und als akustisches Signal gespeichert.
+Das originale Signal wird grafisch dargestellt. 
 
-Das Signal soll so auf dem Oszilloskop dargestellt werden, dass mehrere Periode abgebildet werden. Dann wird das aufgenommene Signal in Python graphisch dargestellt.
-Anhand des Plots bestimmt man die Grundperiode(in ms), und die Grundfrequenz(in Hz) des Signals.
+Dann wird dieses Signal so, dass alle Sample nahe an 0 (kleiner als 10 Prozent von Maximalen Wert) liegen, abgeschnitten(Triggerfunktion), damit alle Signale beginnen nur wenn die eigentliche Spracheingabe angefangen hat. Das neue abgeschnittene Signal sollte genau 1 s lang sein. Zur Überprüfung der Korrekheit der Triggerfunktion werden die beide grafisch dargestellten Signale verglichen.
 
-Signaldauer(in s), Abtastfrequenz(in Hz), Signallänge M(Anzahl der Abtastzeitpunkte) und Abtastintervall $\Delta{t}$(in s) sollen daher abgeleitet werden.
+Mithilfe der Funktion numpy.fft.fft() kann man die Fouriertransformierte des abgeschnitten Signals berechnen. Daraus wird das Amplitudenspektrum bestimmt und grafisch dargestellt.
+ 
+Das Signal wird mit der Methode des Windowing in Abschnitte mit der Länge von 512 Samples zerlegen, die sich jeweils zur Hälfte überlappen. In jedem Fenster werden die Samples mit der Gaußschen Fensterfunktion multipliziert, die die Fensterbreite 4 Standardabweichungen hat. Dadurch werden plötzliche Sprünge vermieden.
 
-Bei diesem Versuch haben wir Note G gespielt.
+In jedem Fenster wird eine lokale Fouriertransformation durchgeführt und daraus den Mittelwert bilden und wieder grafisch darstellen. Die Korrektheit wird durch Vergleich mit dem ohne Windowing Spektrum überprüft.
 
-Mithilfe der Funktion numpy.fft.fft() kann man die Fouriertransformierte des Signals berechnen. Daraus wird das Amplitudenspektrum bestimmt und grafisch dargestellt.
 
 \section{Messwerte}
 \label{chap:VERSUCH_1_MESSWERTE}
 \begin{figure}[H]
 	\centering\small
-	\includegraphics[width=11cm]{messwerteharmonika.png}
-	\caption{Das aufgenommene Signal der Mundharmonika}
+	\includegraphics[width=12cm]{v1.png}
+	\caption{Das komplette aufgenommene Signal von den Worten "was cooles"}
 \end{figure}
 \section{Auswertung}
 \label{chap:VERSUCH_1_AUSWERTUNG}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|l|}
-\hline
-\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{Ergebnis}						\\ \hline
-Grundperiode in ms						&$1.244$							\\ \hline
-Grundfrequenz in Hz						&$803.8585$							\\ \hline
-Signaldauer in s						&$0.005$							\\ \hline
-Abtastfrequenz in Hz					&$500000$							\\ \hline
-Signallänge M							&$2500$								\\ \hline
-Abtastintervall in s					&$0.000002$							\\ \hline
-\end{tabular}
-\caption{}
-\end{table}
-
-Die Frequenzachse des numerisch berechneten Spektrums ist in der Einheit Anzahl Schwingungen innerhalb der gesamten Signaldauer,d.h.der n-teEintragimSpektrum f[n] entspricht n Schwingungen innerhalb der Gesamtlänge des Signals von M $\Delta{t} s$. Die zugehörige Frequenz f in Hertz berechnet sich folglich aus $$f=\frac{n}{M{\cdot}\Delta{t}}$$
- 
 \begin{figure}[H]
 	\centering\small
-	\includegraphics[width=11cm]{Spektrum.png}
-	\caption{Das Spektrum von dem aufgenommenen Signal der Mundharmonika}
+	\includegraphics[width=12cm]{v1_abgeschnitten.png}
+	\caption{Das abgeschnittene Signal von den Worten "was cooles"}
 \end{figure}
 
-Den Code davon bitte den Anhang A.1.1 sehen.
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{Amplitudenspektrum.png}
+	\caption{Das Amplitudenspektrum von dem abgeschnittenen Signal}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{window_signal.png}
+	\caption{Beispiel von einem Fenster(Blau:ohne Fensterfunktion, Orange:mit Fensterfunktion)}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{spektrum_mittel_windowsv1.png}
+	\caption{Amplitudenspektrum durch Mittelung aller lokalen Fouriertransformierten}
+\end{figure}
+
+\textit{Zusätzlich haben wir auch jede lokalen Fouriertransformierte auf einem Graph dargestellt: }
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{spektrum_gesamter_windowsv1.png}
+	\caption{Amplitudespektrum aller lokalen Fouriertransformierten}
+\end{figure}
+
+
+Den Code davon bitte den Anhang A.1.1 und A.1.2 sehen.
 
 \section{Interpretation}
 \label{chap:VERSUCH_1_INTERPRETATION}
-Die Note G sollte normalerweise ungefähr die Frequenz 770 Hz haben. Wir haben aber 803 Hz(ca. Note G\#) berechnet. Das könnte sein, dass wir nicht ganz genau G gespielt haben, weil beim Spielen einer Mundharmonika auch in gleiche Öffnung mit unterschiedlicher Weise(blasen oder ziehen, mit gedrücktem Schieber oder nicht) man unterschiedliche Noten bekommen würde.
+Durch die Amplitudenspektren(Abbildungen 1.3, 1.5 und 1.6) kann festgestellt werden, dass die die ähnlichen Verhältnissen vorliegen aber die Amplituden variieren. Das heißt, jede Frequenz, die im Spektrum des abgeschnitten Signal aufgetreten ist, ist auch im Spektrum aller Fenster aufgetreten, aber diese Frequenzen kommen nicht so häufig wie im originalen Signal vor, weil außerhalb der Fenster sind die Amplituden von Signal 0(manche Frequenzen kommen gar nicht vor).
 
-Aus dem Spektrum kann man die Grundfrequenz ablesen, da bei der der Höchstpunkt von dem Graph liegt. Diese Grundfrequenz beträgt 800 Hz. Und die Amplitude von dieser Fourierkomponente ergibt sich $49.466575158710356$.
 
 %
 % CHAPTER Versuch 2
 %
-\chapter{Frequenzgang von Lautsprechern}
+\chapter{Spracherkennung}
 \section{Fragestellung, Messprinzip, Aufbau, Messmittel}
-\qquad Mikrofon mit Oszilloskop bei Kanal 1, Lautsprecher(groß und klein) bei Kanal 2 verbinden.
-Generator(Quelle von den Lautsprechern) generiert Storm in Form von Sinusschwingung verschiedener Frequenz.
+\qquad Die vier Befehle "Hoch", "Tief", "Links$"$ und "Rechts" werden jeweils 5 Mal von gleichem Sprecher aufgenommen und mit der Windowing-Methode von vorherigem Versuch deren Spektren berechnen. Durch die Mittelung dieser Spektren ergibt sich die Referenzspektren von den 4 Befehlen. Die Referenzspektren werden für den Spracherkenner benötigt, indem wir die Berechnung der Korrelationskoeffizienten nach Bravais-Pearson zum Vergleich zweier Spektren(Referenzspektrum und Eingabespektrum) durchführen. Beim Vergleich identischer Spektren sollte die Korrelation 1 sein, bei verschiedenen Spektren nahe an 0. 
 
-Die Frequenz kann bei Generator eingestellt werden(100,200,300,400,500,700,850 Hz, 1, 1.2, 1.5, 1.7, 2 kHz, 3, 4, 5, 6, 10 kHz). Für jede Frequenz, die man misst, muss die Spannung auf 1,5 V eingestellt werden, damit die Amplitude von Eingangsignal nicht ändert.
+Beim Spracherkenner werden Korrelationskoeffizient von dem Eingabespektrum mit jedem Referenzspektrum berechnet. Dann werden die Korrelationskoeffizienten miteinander verglichen. Das Wort hat die Korrelationskoeffizient, die am meisten in der Nähe von 1 liegt, wird ausgewählt.
 
-Eingangssignal(von den Lautsprechern) und Ausgangssignal(von dem Mikrofon) sind zu protokollieren. Beide Lautsprechern müssen den gleichen Abstand zum Mikrofon haben und das beide Kanäle auf AC \textit{coupling} gestellt sind.
-
-Die Amplituden- und Phasengang sind grafisch darzustellen. Daher wird mithilfe von matplotlib(mit der Funktion semilogx()) ein Bode-Diagramm erstellt werden. Die zugehörigen Angaben werden entsprechend in Dezibel und Phasenwinkel umgewandelt.
+Zum Testen des Spracherkenners werden die oben genannten Befehle jeweils noch 5 Mal von 2 Sprechern aufgenommen. Die Detektions- und die Fehlerrate wird notiert.
 
 \section{Messwerte}
 \label{chap:VERSUCH_2_MESSWERTE}
 \begin{figure}[H]
 	\centering\small
-	\includegraphics[width=11cm]{gross200Hz.png}
-	\caption{Beispiel: Ein-Ausgangssignal mit Höchstpunkten bei Frequenz 200Hz von dem großen Lautsprecher}
+	\includegraphics[width=12cm]{spektrum_mittel_windowshoch.png}
+	\caption{Referenzspektrum von dem Befehl "Hoch"}
 \end{figure}
+
 \begin{figure}[H]
 	\centering\small
-	\includegraphics[width=11cm]{gross1000Hzk.png}
-	\caption{Beispiel: Ein-Ausgangssignal mit Höchstpunkten bei Frequenz 1kHz von dem kleinen Lautsprecher}
+	\includegraphics[width=12cm]{spektrum_mittel_windowstief.png}
+	\caption{Referenzspektrum von dem Befehl "Tief"}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{spektrum_mittel_windowsrechts.png}
+	\caption{Referenzspektrum von dem Befehl "Rechts"}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{spektrum_mittel_windowslinks.png}
+	\caption{Referenzspektrum von dem Befehl "Links"}
 \end{figure}
 \section{Auswertung}
 
 \label{chap:VERSUCH_2_AUSWERTUNG}
 
-Da die beide Signal nicht gleichzeitig kommen, entsteht eine Phasenverschiebung. Die haben wir hergeleitet, indem wir die Höchstpunkt vom Ausgangssignal finden und mit dem direkt vorher liegenden Höchstpunkt vom Eingangssignal vergleichen. Die Differenz von beiden Höchstpunkten sind die Phasenverschiebung in Sekunde. Die Amplitudengang  gibt für jede Frequenz an, wie die einzelnen Sinusschwingungen verstärkt oder abgeschwächt werden. Die Amplituden werden grob mit Höchstpunkt bestimmt.
-
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|l|}
-\hline
-\multicolumn{1}{|c|}{Frequenz} & \multicolumn{1}{c|}{Amplitudengang}		& \multicolumn{1}{c|}{Phasenverschiebung}			\\ \hline
-100 Hz						&$0.03567568$			&$0.00962$				\\ \hline
-200 Hz						&$0.10105263$			&$0.00186$				\\ \hline
-300 Hz						&$0.06842105$			&$0.00174$				\\ \hline
-400 Hz						&$0.05263158$			&$0.0016$				\\ \hline
-500 Hz						&$0.04315789$			&$0.00118$				\\ \hline
-700 Hz						&$0.031$				&$0.00104$				\\ \hline
-850 Hz						&$0.03263158$			&$0.0008$				\\ \hline
-1000 Hz						&$0.04631579$			&$0.000564$				\\ \hline
-1200 Hz						&$0.03684211$			&$0.00052$				\\ \hline
-1500 Hz						&$0.03368421$			&$0.000496$				\\ \hline
-1700 Hz						&$0.03684211$			&$0.000502$				\\ \hline
-2000 Hz						&$0.03333333$			&$0.000402$				\\ \hline
-3000 Hz						&$0.033$				&$0.00031$				\\ \hline
-4000 Hz						&$0.03692308$			&$0.000033$				\\ \hline
-5000 Hz						&$0.029$				&$0.0000584$				\\ \hline
-6000 Hz						&$0.02888889$			&$0.0000728$				\\ \hline
-10000 Hz					&$0.02842105$			&$0.0000988$				\\ \hline
-\end{tabular}
-\caption{Großer Lautsprecher}
-\end{table}
-
+\textit{Korrelationskoeffizient nach Bravais-Pearson:} $$r_{fg}=\frac{\sigma_{fg}}{\sigma_{f}\cdot\sigma_{g}}$$ indem $\sigma_{f}$ und $\sigma_{g}$ jeweils Standardabweichungen von den entsprechenden Signalen f und g sind, die nach der Formel berechnet: $$\sigma^2_f=\frac{1}{n-1}\sum_{k=1}^{n}(f_k-\mu_f)^2$$
+\qquad\textit{Die Kovarianz} $\sigma_{fg}$ ist für diskrete Signale definiert als:$$\sigma_{fg}=\frac{1}{n}\sum_{k=1}^{n}(f_k-\mu_f)\cdot(g_k-\mu_g)$$
+\qquad $\mu_f$ ist \textit{der Mittelwert:} $$\mu_f=\frac{1}{n}\sum_{k=1}^nf_k$$
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|}
 \hline
-\multicolumn{1}{|c|}{Frequenz} & \multicolumn{1}{c|}{Amplitudengang}		& \multicolumn{1}{c|}{Phasenverschiebung}			\\ \hline
-100 Hz						&$0.02105263$			&$0.00907$				\\ \hline
-200 Hz						&$0.02947368$			&$0.00072$				\\ \hline
-300 Hz						&$0.03$					&$0.00063$				\\ \hline
-400 Hz						&$0.04421053$			&$0.000762$				\\ \hline
-500 Hz						&$0.08315789$			&$0.00066$				\\ \hline
-700 Hz						&$0.06$					&$0.000986$				\\ \hline
-850 Hz						&$0.05263158$			&$0.000764$				\\ \hline
-1000 Hz						&$0.04421053$			&$0.000684$				\\ \hline
-1200 Hz						&$0.03263158$			&$0.000634$				\\ \hline
-1500 Hz						&$0.03263158$			&$0.00064$				\\ \hline
-1700 Hz						&$0.03157895$			&$0.000486$				\\ \hline
-2000 Hz						&$0.03263158$			&$0.000426$				\\ \hline
-3000 Hz						&$0.03578947$			&$0.000318$				\\ \hline
-4000 Hz						&$0.02631579$			&$0.000018$				\\ \hline
-5000 Hz						&$0.034$				&$0.000056$				\\ \hline
-6000 Hz						&$0.02210526$			&$0.000028$				\\ \hline
-10000 Hz					&$0.027$				&$0.000013$				\\ \hline
+\multicolumn{1}{|c|}{Befehl} & \multicolumn{1}{c|}{Sprecher 1}		& \multicolumn{1}{c|}{Sprecher 2}			\\ \hline
+Hoch						&$100\%$				&$100\%$				\\ \hline
+Tief						&$100\%$				&$80\%$					\\ \hline
+Links						&$100\%$				&$100\%$				\\ \hline
+Rechts						&$100\%$				&$80\%$					\\ \hline
 \end{tabular}
-\caption{Kleiner Lautsprecher}
+\caption{Detektionsrate}
 \end{table}
 
 
 
-\textit{Zeit in Phasenwinkel umwandeln:} $$\varphi{_H}=-{\Delta}t{\cdot}f{\cdot}360^{\circ}$$
-\textit{Amplitudengang in Dezibel umwandeln:}$$20{\cdot}\log_{10} (Amplitudengang)$$
-
-
-\begin{figure}[H]
-\centering\small
-\fbox{
-	\includegraphics[width=11cm]{bodediagrammgr.png}
-	}
-	\caption{Bode-Diagramm von dem großen Lautsprecher}
-\end{figure}
-
-\begin{figure}[H]
-\centering\small
-\fbox{
-	\includegraphics[width=11cm]{bodediagrammkl.png}
-	}
-	\caption{Bode-Diagramm von dem kleinen Lautsprecher}
-\end{figure}
-
-Den Code davon bitte den Anhang A.1.2 sehen.
+Den Code davon bitte den Anhang A.1.3 und A.1.4 sehen.
 
 \section{Interpretation}
 \label{chap:VERSUCH_2_INTERPRETATION}
-Bei der Tabelle von dem Amplitudengang kann man einsehen, dass die Veränderung von Amplituden am Anfang groß ist aber danach tendenziell absteigt, da bei zu klein Frequenz die Geräusch nicht laut genug ist. Bei wachsenden Frequenzen braucht immer mehr Energie, dass die Geräusche leiser werden.
-Bei zu kleinen Frequenzen(100-200Hz) und zu großen Frequenzen (5000-10000Hz)sind die Phasengang im Bode-Diagramm sind nicht wie erwartet(aufsteigend, absteigend dann wieder aufsteigend, große überraschende Sprünge). Der Grund dafür könnte sein, dass die Lautsprecher bei zu groß oder zu klein Frequenzen nicht richtig annehmen können.
-
+\qquad Die Detektion besagt, dass beim Sprecher 1 100$\%$ das Wort korrekt erkannt wurde und beim Sprecher 2 ist abweichend bei der Erkennung der Befehle "Tief$"$ und "Rechts". Das ist total verständlich, weil der Sprecher 1 ist die Person, von der die Referenzspektren hergestellt wurden. Bei dem anderen Sprecher wurde die Befehlen manchmal falsch erkannt. Die Erklärung dafür ist aus den anatomischen Gründe, dass jede Person eigene Stimme und eigene Sprechweise(Akzent) hat. Die Fehlerrate ist nicht so hoch, da die Datenbank der Referenzspektrum noch ziemlich klein ist (von nur 4 Befehlen).
 
 %
 % CHAPTER Anhang
@@ -411,7 +371,7 @@ Bei zu kleinen Frequenzen(100-200Hz) und zu großen Frequenzen (5000-10000Hz)sin
 \section{Quellcode}
 \label{chap:APPENDIX_SOURCECODE}
 
-\subsection{Quellcode Versuch 1}
+\subsection{Quellcode Signal Aufnehmen, Triggerfunktion und Fourriertransformation}
 \label{chap:APPENDIX_SOURCECODE_V1}
 \begin{lstlisting}[
 style=PYTHON,
@@ -419,54 +379,63 @@ frame=single,
 caption=,
 captionpos=b,
 label=lst:V1]
-#from TekTDS2000 import *
+import pyaudio 
 import numpy as np
 import matplotlib.pyplot as plt
-#scope = TekTDS2000()
 
-data = np.genfromtxt("harleybentonrichtig.csv", delimiter=",")
-datas = data[:,1]
-dataz = data[:,0]
+FORMAT = pyaudio.paInt16
+SAMPLEFREQ = 44100
+FRAMESIZE = 1024
+NOFFRAMES = 220
+INPUT_BLOCK_TIME = 0.05 
+INPUT_FRAMES_PER_BLOCK = int(SAMPLEFREQ*INPUT_BLOCK_TIME)
+p = pyaudio.PyAudio()
+print('running')
+stream = p.open(format=FORMAT,channels=1,rate=SAMPLEFREQ, input=True,frames_per_buffer=FRAMESIZE)
+data = stream.read(NOFFRAMES*FRAMESIZE) 
+decoded = np.fromstring(data, 'Int16')
+stream.stop_stream() 
+stream.close() 
+p.terminate() 
+print('done') 
 
-ind = np.argmax(datas)
-print(ind)
-ind2 = np.argmax(datas[ind + 1:]) + ind + 1
-print(ind2)
-periode = dataz[ind2]-dataz[ind]
-print("grper", periode)
-gfre = 1/periode
-print("grfre", gfre)
-
-sigdauer = 0.005 #5ms
-ablen = len(data) #Signallänge
-abin = sigdauer / ablen #abtastinterval
-abfr = 1 / abin #abtastfrequenz
-print("Signaldauer: ", sigdauer)
-print("Abtastfrequenz: ", abfr)
-print("Signallänge: ", ablen)
-print("Abtastintervall: ", abin)
-
-
-Y = abs(np.fft.fft(datas)) # fft computing and normalization
-schw = np.argmax(Y)
-Y = Y[range(1250)]
-plt.xlabel('Frequenz($Hertz$)')
-plt.ylabel('Amplitude($Unit$)')
-x = np.linspace(0,abfr/2,1250,endpoint = True)
-plt.plot(x,abs(Y))
-plt.savefig("Spektrum.png")
+#######Signal speichern und darstellen########
+string = 'hoch1'
+np.save(string,decoded)
+sec = len(decoded) / SAMPLEFREQ
+plt.xlabel('Zeit in s')
+plt.ylabel('Amplitude')
+Zeit = []
+for i in range (len(decoded)):
+    Zeit.append(sec/len(decoded) * i)
+plt.plot(Zeit,decoded) 
 plt.show()
 
-plt.xlabel('Zeit($s$)')
-plt.ylabel('Amplitude($Unit$)')
-plt.plot(dataz,datas)
+####Signal mit Triggerfunktion abschneiden####
+trigger = 0.1 * np.max(decoded)
+j = 0
+for i in decoded:
+    j = j + 1
+    if np.abs(i) > trigger:
+        decoded = decoded[j:j+SAMPLEFREQ]
+        break
+np.save(string+'abgeschnitten',decoded)
+plt.xlabel('Zeit in s')
+plt.ylabel('Amplitude')
+Zeit = []
+for i in range (len(decoded)):
+    Zeit.append(1/len(decoded) * i)
+plt.plot(Zeit,decoded) 
+plt.show()
 
-print('Grundfrequenz: ', schw/(ablen * abin))
-print('Amplitude: ', np.max(Y))
+###########Fourriertranformation###############
+spek = abs(np.fft.fft(decoded))
+plt.plot(spek)
+plt.savefig('Amplitudenspektrum.png')
 \end{lstlisting}
 
-\subsection{Quellcode Versuch 2}
-\label{chap:APPENDIX_SOURCECODE_V2}
+\subsection{Quellcode Windowing und Spektrum Versuch 1}
+\label{chap:APPENDIX_SOURCECODE_V1}
 \begin{lstlisting}[
 style=PYTHON,
 frame=single,
@@ -476,70 +445,151 @@ label=lst:V2]
 import numpy as np
 import matplotlib.pyplot as plt
 
-def verschieb(hz):
-    per = int((1/hz)/zeitUnit)
-
-    ind1 = np.argmax(data1)
-    if (ind1 - per) < 0:
-       ind1 = ind1 + per
-    ind2 = ind1 - per + np.argmax(data2[ind1-per:ind1])
-    
-    verschiebung = dataz[ind1] - dataz[ind2]
-    plt.plot(dataz[ind1],data1[ind1],"ro")
-    plt.plot(dataz[ind2],data2[ind2],"bo")
-    print('Verschiebung: ' + str(verschiebung) + 's')
-    return(verschiebung)
-
-amp = np.zeros(17)
-phase = np.zeros(17)
-
-index = [100,200,300,400,500,700,850,1000,1200,1500,1700,
-      2000,3000,4000,5000,6000,10000]
-c = 0
-for i in index:
-    data = np.genfromtxt(str(i) + "Hzk.csv", delimiter=",")
-    data1 = data[:,1]
-    data2 = data[:,2]
-    dataz = data[:,0]
-    zeitUnit = dataz[1]-dataz[0]
-    phase[c] = round(verschieb(i),10)
-    amp[c] = np.max(data1)/np.max(data2)
-
-    c = c + 1
-    plt.ylabel('Amplitude')
-    plt.xlabel('Zeit(s)')
-    plt.plot(dataz,data1)
-    plt.plot(dataz,data2)
-    if (i == 1000):
-        plt.savefig("gross1000Hzk.png")
+def fft(data,name):
+    plt.figure(figsize=(9,6))
+    Y = abs(np.fft.fft(data))
+    Y = Y[range(int(len(Y)/2))]
+    x = np.linspace(0,22050,22050,endpoint = True)
+    plt.xlabel('Frequenz($Hertz$)')
+    plt.ylabel('Amplitude($Unit$)')
+    plt.plot(x,abs(Y))
+    plt.savefig(str(name)+".png")
     plt.show()
     
-print('-------Amplitude--------')   
-print(amp)
-plt.title('Amptitudengang')
-plt.plot(index,amp)
+def winspek(data,name):
+    plt.figure(figsize=(9,6))
+    plt.xlabel('Frequenz($Hertz$)')
+    plt.ylabel('Amplitude($Unit$)')
+    st = np.std(data)
+    from scipy import signal
+    gfen = signal.gaussian(512, std = st * 4)
+    g = np.zeros(len(data))
+    fft = np.zeros(len(data))
+    x = np.linspace(0,22050,22050,endpoint = True)
+    for i in range(0,len(data),256):
+        if (i > len(data) - 512):
+            gfen = signal.gaussian(len(data)-i, std = st * 4)
+            g[i:] = data[i:] * gfen
+            fft += abs(np.fft.fft(g))
+            a = np.fft.fft(g)
+            a = a[range(int(len(a)/2))]
+            plt.plot(x,abs(a))
+            break
+        g[i:i+512] = data[i:i+512] * gfen
+        fft += abs(np.fft.fft(g))
+        a = np.fft.fft(g)
+        a = a[range(int(len(a)/2))]
+        plt.plot(x,abs(a))
+        g = np.zeros(len(data))
+    plt.savefig("spektrum_gesamter_windows"+str(name)+".png")
+    plt.show()
+    fft /= 171 #durch die Anzahl der Windows teilen
+    fft = fft[range(int(len(fft)/2))]
+    plt.figure(figsize=(9,6))
+    plt.xlabel('Frequenz($Hertz$)')
+    plt.ylabel('Amplitude($Unit$)')
+    plt.plot(x,fft)
+    plt.savefig("spektrum_mittel_windows"+str(name)+".png")
+    return fft
+    
+data = np.load('was_cooles_abgeschnitten.npy')
+plt.figure(figsize=(9,6))
+plt.xlabel('Zeit in s')
+plt.ylabel('Amplitude')
+Zeit = []
+for i in range (len(data)):
+    Zeit.append(1/len(data) * i)
+plt.plot(Zeit,data)
+plt.savefig("v1_abgeschnitten.png")
 plt.show()
-print('-------Verschiebung--------')
-print(phase)
-plt.title('Phasengang')
-plt.plot(index,phase)
-plt.show()
+fft(data,"Amplitudenspektrum")
 
-db = 20*np.log10(amp)
-Phasenwinkel = -phase*index*360
-print('---------------')
-print(db)
-print('---------------')
-print(Phasenwinkel)
-plt.subplot(2,1,1)
-plt.title('Bode Diagramm')
-plt.semilogx(index,db)
-plt.ylabel('Amplitude in dB')
-plt.subplot(2,1,2)
-plt.semilogx(index,Phasenwinkel)
-plt.ylabel('Phase in deg')
-plt.xlabel('Frequenz in Hz')
-plt.savefig("bodediagrammkl.png")
+winspek(data,"v1")
+\end{lstlisting}
+
+\subsection{Quellcode Windowing und Referenzspektrum Versuch 2}
+\label{chap:APPENDIX_SOURCECODE_V2}
+\begin{lstlisting}[
+style=PYTHON,
+frame=single,
+caption=,
+captionpos=b,
+label=lst:V2]
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import signal
+
+def winspek(data):
+    st = np.std(data)
+    gfen = signal.gaussian(512, std = st * 4)
+    g = np.zeros(len(data))
+    fft = np.zeros(len(data))
+    for i in range(0,len(data),256):
+        if (i > len(data) - 512):
+            break
+        g[i:i+512] = data[i:i+512] * gfen
+        fft += abs(np.fft.fft(g))
+        a = np.fft.fft(g)
+        a = a[range(int(len(a)/2))]
+        g = np.zeros(len(data))
+    
+    fft /= 171 #durch die Anzahl der Windows teilen
+    fft = fft[range(int(len(fft)/2))]
+    return fft
+
+data = np.load('hoch1abgeschnitten.npy')
+mit =  np.zeros(int(len(data)/2))
+a = ['hoch', 'tief', 'rechts', 'links']
+for j in a:
+    mit = 0
+    for i in range(1,6):
+        data = np.load(j + str(i) + 'abgeschnitten.npy')
+        np.save('spek' + j + str(i),winspek(data))
+        mit+=winspek(data)
+    mit = mit/5
+    np.save('ref' + j,mit)
+    plt.figure(figsize=(9,6))
+    plt.xlabel('Frequenz($Hertz$)')
+    plt.ylabel('Amplitude($Unit$)')
+    plt.plot(mit)
+    plt.savefig("spektrum_mittel_windows" + j + ".png")
+    plt.show()
+\end{lstlisting}
+
+\subsection{Quellcode Korrelation und Spracherkenner Versuch 2}
+\label{chap:APPENDIX_SOURCECODE_V2}
+\begin{lstlisting}[
+style=PYTHON,
+frame=single,
+caption=,
+captionpos=b,
+label=lst:V2]
+import numpy as np
+
+refhoch = np.load('experiment 2a/refhoch.npy')
+reftief = np.load('experiment 2a/reftief.npy')
+refrechts = np.load('experiment 2a/refrechts.npy')
+reflinks = np.load('experiment 2a/reflinks.npy')
+def spracherkenner(name,person):
+    for i in range(1,6):
+        test = np.load('Spek/spek'+str(name)+str(i)+'t'+str(person)+'.npy')
+        korrcoefh = np.corrcoef(refhoch, y = test)
+        korrcoeft = np.corrcoef(reftief, y = test)
+        korrcoefr = np.corrcoef(refrechts, y = test)
+        korrcoefl = np.corrcoef(reflinks, y = test)
+        a = np.max([np.mean(korrcoefh), np.mean(korrcoeft), np.mean(korrcoefr), np.mean(korrcoefl)])
+        if a == np.mean(korrcoefh):
+            print('hoch')
+        elif a == np.mean(korrcoeft):
+            print('tief')
+        elif a == np.mean(korrcoefr):
+            print('rechts')
+        elif a == np.mean(korrcoefl):
+            print('links')
+            
+spracherkenner('links','p')
+print("----")
+spracherkenner('links','s')
 \end{lstlisting}
 
 \end{document}

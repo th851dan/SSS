@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.31)  5 DEC 2018 15:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.31)  19 DEC 2018 17:20
 entering extended mode
 **./SSS_Laborbericht.tex
 (SSS_Laborbericht.tex
@@ -1550,56 +1550,68 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 e.tex"
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 )))
-Package hyperref Info: Option `colorlinks' set `false' on input line 178.
-Package hyperref Info: Option `unicode' set `true' on input line 178.
+Package hyperref Info: Option `colorlinks' set `false' on input line 180.
+Package hyperref Info: Option `unicode' set `true' on input line 180.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\puenc.def"
 File: puenc.def 2018/09/30 v6.88a Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `pdftoolbar' set `true' on input line 178.
-Package hyperref Info: Option `pdfmenubar' set `true' on input line 178.
-Package hyperref Info: Option `pdffitwindow' set `false' on input line 178.
-Package hyperref Info: Option `pdfnewwindow' set `true' on input line 178.
+Package hyperref Info: Option `pdftoolbar' set `true' on input line 180.
+Package hyperref Info: Option `pdfmenubar' set `true' on input line 180.
+Package hyperref Info: Option `pdffitwindow' set `false' on input line 180.
+Package hyperref Info: Option `pdfnewwindow' set `true' on input line 180.
 
 (SSS_Laborbericht.aux (preface/cover.aux) (preface/abstract.aux)
 (preface/tableofcontents.aux) (preface/listoffigures.aux)
-(preface/listoftables.aux))
+(preface/listoftables.aux)
+
+LaTeX Warning: Label `chap:APPENDIX_SOURCECODE_V1' multiply defined.
+
+
+LaTeX Warning: Label `lst:V2' multiply defined.
+
+
+LaTeX Warning: Label `chap:APPENDIX_SOURCECODE_V2' multiply defined.
+
+
+LaTeX Warning: Label `lst:V2' multiply defined.
+
+)
 \openout1 = `SSS_Laborbericht.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 186.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 186.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 188.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 188.
 
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\cbfonts-fd\lgrcmr.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\cbfonts-fd\lgrcmr.fd"
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 186.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 186.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 188.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 188.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 186.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 188.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -1639,7 +1651,7 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box50
-Package hyperref Info: Link coloring OFF on input line 186.
+Package hyperref Info: Link coloring OFF on input line 188.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1648,9 +1660,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count167
 )
-LaTeX Info: Redefining \ref on input line 186.
-LaTeX Info: Redefining \pageref on input line 186.
-LaTeX Info: Redefining \nameref on input line 186.
+LaTeX Info: Redefining \ref on input line 188.
+LaTeX Info: Redefining \pageref on input line 188.
+LaTeX Info: Redefining \nameref on input line 188.
 
 (SSS_Laborbericht.out) (SSS_Laborbericht.out)
 \@outlinefile=\write5
@@ -1683,7 +1695,7 @@ babelbib: Set language for keywords in the bibliography fixed to ngerman
 \c@lstlisting=\count174
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 186.
+(lastpage)             ! on input line 188.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -1692,12 +1704,12 @@ Package caption Info: End \AtBeginDocument code.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.16} into 
 your preamble.
- on input line 186.
+ on input line 188.
 
 \openout2 = `preface/cover.aux'.
 
 (preface/cover.tex
-<preface/htwg-logo.png, id=70, 298.716pt x 119.4864pt>
+<preface/htwg-logo.png, id=78, 298.716pt x 119.4864pt>
 File: preface/htwg-logo.png Graphic file (type png)
 <use preface/htwg-logo.png>
 Package pdftex.def Info: preface/htwg-logo.png  used on input line 7.
@@ -1760,7 +1772,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.192 \include{preface/abstract}
+l.194 \include{preface/abstract}
                                  [1
 
 
@@ -1806,101 +1818,148 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 
 ])
  1.
-<messwerteharmonika.png, id=140, 433.62pt x 289.08pt>
-File: messwerteharmonika.png Graphic file (type png)
-<use messwerteharmonika.png>
-Package pdftex.def Info: messwerteharmonika.png  used on input line 245.
-(pdftex.def)             Requested size: 312.9803pt x 208.66234pt.
+<v1.png, id=154, 650.43pt x 433.62pt>
+File: v1.png Graphic file (type png)
+<use v1.png>
+Package pdftex.def Info: v1.png  used on input line 248.
+(pdftex.def)             Requested size: 341.43306pt x 227.62744pt.
 [1
 
 
 
 ]
-<Spektrum.png, id=147, 433.62pt x 289.08pt>
-File: Spektrum.png Graphic file (type png)
-<use Spektrum.png>
-Package pdftex.def Info: Spektrum.png  used on input line 270.
-(pdftex.def)             Requested size: 312.9803pt x 208.66234pt.
- [2 <./messwerteharmonika.png>] [3 <./Spektrum.png>]
- 2.
-<gross200Hz.png, id=162, 433.62pt x 289.08pt>
-File: gross200Hz.png Graphic file (type png)
-<use gross200Hz.png>
-Package pdftex.def Info: gross200Hz.png  used on input line 300.
-(pdftex.def)             Requested size: 312.9803pt x 208.66234pt.
-<gross1000Hzk.png, id=163, 433.62pt x 289.08pt>
-File: gross1000Hzk.png Graphic file (type png)
-<use gross1000Hzk.png>
-Package pdftex.def Info: gross1000Hzk.png  used on input line 305.
-(pdftex.def)             Requested size: 312.9803pt x 208.66234pt.
-[4
+<v1_abgeschnitten.png, id=159, 650.43pt x 433.62pt>
+File: v1_abgeschnitten.png Graphic file (type png)
+<use v1_abgeschnitten.png>
+Package pdftex.def Info: v1_abgeschnitten.png  used on input line 255.
+(pdftex.def)             Requested size: 341.43306pt x 227.62744pt.
+<Amplitudenspektrum.png, id=160, 650.43pt x 433.62pt>
+File: Amplitudenspektrum.png Graphic file (type png)
+<use Amplitudenspektrum.png>
+Package pdftex.def Info: Amplitudenspektrum.png  used on input line 261.
+(pdftex.def)             Requested size: 341.43306pt x 227.62744pt.
+ [2 <./v1.png> <./v1_abgeschnitten.png>]
+<window_signal.png, id=168, 650.43pt x 433.62pt>
+File: window_signal.png Graphic file (type png)
+<use window_signal.png>
+Package pdftex.def Info: window_signal.png  used on input line 267.
+(pdftex.def)             Requested size: 341.43306pt x 227.62744pt.
+<spektrum_mittel_windowsv1.png, id=169, 650.43pt x 433.62pt>
+File: spektrum_mittel_windowsv1.png Graphic file (type png)
+<use spektrum_mittel_windowsv1.png>
+Package pdftex.def Info: spektrum_mittel_windowsv1.png  used on input line 273.
 
-] [5 <./gross200Hz.png> <./gross1000Hzk.png>] [6]
-<bodediagrammgr.png, id=178, 433.62pt x 289.08pt>
-File: bodediagrammgr.png Graphic file (type png)
-<use bodediagrammgr.png>
-Package pdftex.def Info: bodediagrammgr.png  used on input line 378.
-(pdftex.def)             Requested size: 312.9803pt x 208.66234pt.
- [7]
-<bodediagrammkl.png, id=184, 433.62pt x 289.08pt>
-File: bodediagrammkl.png Graphic file (type png)
-<use bodediagrammkl.png>
-Package pdftex.def Info: bodediagrammkl.png  used on input line 386.
-(pdftex.def)             Requested size: 312.9803pt x 208.66234pt.
- [8 <./bodediagrammgr.png> <./bodediagrammkl.png>] [9]
+(pdftex.def)             Requested size: 341.43306pt x 227.62744pt.
+ [3 <./Amplitudenspektrum.png> <./window_signal.png>]
+<spektrum_gesamter_windowsv1.png, id=176, 650.43pt x 433.62pt>
+File: spektrum_gesamter_windowsv1.png Graphic file (type png)
+<use spektrum_gesamter_windowsv1.png>
+Package pdftex.def Info: spektrum_gesamter_windowsv1.png  used on input line 28
+1.
+(pdftex.def)             Requested size: 341.43306pt x 227.62744pt.
+ [4 <./spektrum_mittel_windowsv1.png> <./spektrum_gesamter_windowsv1.png>] [5]
+ 2.
+<spektrum_mittel_windowshoch.png, id=188, 650.43pt x 433.62pt>
+File: spektrum_mittel_windowshoch.png Graphic file (type png)
+<use spektrum_mittel_windowshoch.png>
+Package pdftex.def Info: spektrum_mittel_windowshoch.png  used on input line 30
+8.
+(pdftex.def)             Requested size: 341.43306pt x 227.62744pt.
+[6
+
+]
+<spektrum_mittel_windowstief.png, id=193, 650.43pt x 433.62pt>
+File: spektrum_mittel_windowstief.png Graphic file (type png)
+<use spektrum_mittel_windowstief.png>
+Package pdftex.def Info: spektrum_mittel_windowstief.png  used on input line 31
+4.
+(pdftex.def)             Requested size: 341.43306pt x 227.62744pt.
+<spektrum_mittel_windowsrechts.png, id=194, 650.43pt x 433.62pt>
+File: spektrum_mittel_windowsrechts.png Graphic file (type png)
+<use spektrum_mittel_windowsrechts.png>
+Package pdftex.def Info: spektrum_mittel_windowsrechts.png  used on input line 
+320.
+(pdftex.def)             Requested size: 341.43306pt x 227.62744pt.
+ [7 <./spektrum_mittel_windowshoch.png> <./spektrum_mittel_windowstief.png>]
+<spektrum_mittel_windowslinks.png, id=201, 650.43pt x 433.62pt>
+File: spektrum_mittel_windowslinks.png Graphic file (type png)
+<use spektrum_mittel_windowslinks.png>
+Package pdftex.def Info: spektrum_mittel_windowslinks.png  used on input line 3
+26.
+(pdftex.def)             Requested size: 341.43306pt x 227.62744pt.
+[8 <./spektrum_mittel_windowsrechts.png> <./spektrum_mittel_windowslinks.png>]
+[9]
+Overfull \hbox (6.93353pt too wide) in paragraph at lines 374--374
+[]\T1/ptm/b/n/14.4 Quellcode Si-gnal Auf-neh-men, Trig-ger-funk-ti-on und Four-
+rier-trans-
+ []
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2018/09/02 1.7 listings language file
 )
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 422.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 382.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 391.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 423.
+Overfull \hbox (32.26767pt too wide) in paragraph at lines 394--395
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[10
+
+] [11]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 435.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 470.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 435.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 470.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 435.
- [10
-
-] [11] [12]
-
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 470.
+ [12] [13] 
 AED: lastpage setting LastPage
-[13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 545.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 545.
+[14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 595.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 595.
  (SSS_Laborbericht.aux (preface/cover.aux) (preface/abstract.aux)
 (preface/tableofcontents.aux) (preface/listoffigures.aux)
 (preface/listoftables.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 545.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 545.
-Package rerunfilecheck Info: File `SSS_Laborbericht.out' has not changed.
-(rerunfilecheck)             Checksum: F04FED35499E80713C33124132572B23;2551.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 545.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 595.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 595.
+
+
+Package rerunfilecheck Warning: File `SSS_Laborbericht.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `SSS_Laborbericht.out':
+(rerunfilecheck)             Before: 71F34FBF63F333807D4A908CB2B94DB4;3374
+(rerunfilecheck)             After:  B902E10FCFF6D97E229CFE75840CD66C;3460.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 595.
  ) 
 Here is how much of TeX's memory you used:
- 38227 strings out of 492970
- 811608 string characters out of 3135854
- 1167828 words of memory out of 3000000
- 41181 multiletter control sequences out of 15000+200000
- 67240 words of font info for 113 fonts, out of 3000000 for 9000
+ 38364 strings out of 492970
+ 814148 string characters out of 3135854
+ 1176107 words of memory out of 3000000
+ 41237 multiletter control sequences out of 15000+200000
+ 67263 words of font info for 113 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,12n,98p,715b,2210s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
-symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/urw/times/utmri8a.pfb>
-Output written on SSS_Laborbericht.pdf (18 pages, 253020 bytes).
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/usy
+r.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/urw/times/utmri8a.pfb>
+Output written on SSS_Laborbericht.pdf (19 pages, 351061 bytes).
 PDF statistics:
- 387 PDF objects out of 1000 (max. 8388607)
- 159 named destinations out of 1000 (max. 500000)
- 176 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 499 PDF objects out of 1000 (max. 8388607)
+ 236 named destinations out of 1000 (max. 500000)
+ 212 words of extra memory for PDF output out of 10000 (max. 10000000)
 

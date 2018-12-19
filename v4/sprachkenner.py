@@ -1,6 +1,5 @@
 import numpy as np
 
-
 refhoch = np.load('experiment 2a/refhoch.npy')
 reftief = np.load('experiment 2a/reftief.npy')
 refrechts = np.load('experiment 2a/refrechts.npy')
@@ -23,7 +22,8 @@ def spracherkenner(name,person):
             print('links')
             
 spracherkenner('links','p')
-spracherkenner('tief','s')
+print("----")
+spracherkenner('links','s')
 
 
 #def spracherkenner(ref, test):
