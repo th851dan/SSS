@@ -1,6 +1,4 @@
 import redlab as rl
-import numpy as np
-import time
 import matplotlib.pyplot as pl
 
 print("------- einzelne Werte -------------------------")
