@@ -1,0 +1,15 @@
+\babel@toc {ngerman}{}
+\contentsline {chapter}{Abbildungsverzeichnis}{III}{section*.2}
+\contentsline {chapter}{Tabellenverzeichnis}{IV}{section*.4}
+\contentsline {chapter}{\numberline {1}Programmierung der AD/DA-Wandlerkarte}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Genauigkeit der AD-Wandlung}{2}{chapter.2}
+\contentsline {section}{\numberline {2.1}Fragestellung, Messprinzip, Aufbau, Messmittel}{2}{section.2.1}
+\contentsline {section}{\numberline {2.2}Messwerte}{3}{section.2.2}
+\contentsline {section}{\numberline {2.3}Auswertung}{6}{section.2.3}
+\contentsline {section}{\numberline {2.4}Interpretation}{7}{section.2.4}
+\contentsline {chapter}{Anhang}{8}{chapter*.11}
+\contentsline {section}{\numberline {A.1}Quellcode}{8}{section.3.1}
+\contentsline {subsection}{\numberline {A.1.1}Quellcode Signal Aufnehmen, Triggerfunktion und Fourriertransformation}{8}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Quellcode Windowing und Spektrum Versuch 1}{9}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {A.1.3}Quellcode Windowing und Referenzspektrum Versuch 2}{11}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {A.1.4}Quellcode Korrelation und Spracherkenner Versuch 2}{12}{subsection.3.1.4}
