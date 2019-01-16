@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.31)  15 JAN 2019 18:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.31)  16 JAN 2019 18:46
 entering extended mode
 **./SSS_Laborbericht.tex
 (SSS_Laborbericht.tex
@@ -1568,15 +1568,6 @@ Package hyperref Info: Option `pdfnewwindow' set `true' on input line 178.
 
 LaTeX Warning: Label `chap:APPENDIX_SOURCECODE_V1' multiply defined.
 
-
-LaTeX Warning: Label `lst:V2' multiply defined.
-
-
-LaTeX Warning: Label `chap:APPENDIX_SOURCECODE_V2' multiply defined.
-
-
-LaTeX Warning: Label `lst:V2' multiply defined.
-
 )
 \openout1 = `SSS_Laborbericht.aux'.
 
@@ -1709,7 +1700,7 @@ your preamble.
 \openout2 = `preface/cover.aux'.
 
 (preface/cover.tex
-<preface/htwg-logo.png, id=78, 298.716pt x 119.4864pt>
+<preface/htwg-logo.png, id=118, 298.716pt x 119.4864pt>
 File: preface/htwg-logo.png Graphic file (type png)
 <use preface/htwg-logo.png>
 Package pdftex.def Info: preface/htwg-logo.png  used on input line 7.
@@ -1783,24 +1774,24 @@ l.192 \include{preface/abstract}
 (SSS_Laborbericht.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
-)
-\tf@toc=\write6
-\openout6 = `SSS_Laborbericht.toc'.
-
  [2
 
 
 
 
 ])
+\tf@toc=\write6
+\openout6 = `SSS_Laborbericht.toc'.
+
+ [3])
 \openout2 = `preface/listoffigures.aux'.
 
- (preface/listoffigures.tex (SSS_Laborbericht.lof)
+ (preface/listoffigures.tex
+(SSS_Laborbericht.lof)
 \tf@lof=\write7
 \openout7 = `SSS_Laborbericht.lof'.
 
-
-[3
+ [4
 
 
 
@@ -1811,7 +1802,8 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 \tf@lot=\write8
 \openout8 = `SSS_Laborbericht.lot'.
 
- [4
+
+[5
 
 
 
@@ -1824,197 +1816,131 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 
 ]
  2.
+[2
 
-Overfull \hbox (47.71445pt too wide) in paragraph at lines 237--238
- \T1/ptm/m/n/12 In die-sem Ver-such wird die Ge-nau-ig-keit der AD-Wandlung von
- 3 Mess-ge-rä-ten(Multifunktionsbox
- []
+] [3] [4]
+ 3.
+[5
 
-
-LaTeX Warning: File `spektrum_mittel_windowshoch.png' not found on input line 2
-50.
-
-
-! Package pdftex.def Error: File `spektrum_mittel_windowshoch.png' not found: u
-sing draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.250 ...th=12cm]{spektrum_mittel_windowshoch.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 250.
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [2
+] [6]
+ 4.
+<v4ori.png, id=239, 433.62pt x 289.08pt>
+File: v4ori.png Graphic file (type png)
+<use v4ori.png>
+Package pdftex.def Info: v4ori.png  used on input line 346.
+(pdftex.def)             Requested size: 341.43306pt x 227.63405pt.
+[7
 
 ]
+<v4neu.png, id=245, 794.97pt x 433.62pt>
+File: v4neu.png Graphic file (type png)
+<use v4neu.png>
+Package pdftex.def Info: v4neu.png  used on input line 352.
+(pdftex.def)             Requested size: 426.79134pt x 232.80154pt.
+<v4ohne.png, id=246, 794.97pt x 433.62pt>
+File: v4ohne.png Graphic file (type png)
+<use v4ohne.png>
+Package pdftex.def Info: v4ohne.png  used on input line 365.
+(pdftex.def)             Requested size: 426.79134pt x 232.80154pt.
+ [8 <./v4ori.png> <./v4neu.png>] [9 <./v4ohne.png>]
+ 5.
+<10.png, id=258, 433.62pt x 289.08pt>
+File: 10.png Graphic file (type png)
+<use 10.png>
+Package pdftex.def Info: 10.png  used on input line 393.
+(pdftex.def)             Requested size: 341.43306pt x 227.63405pt.
+[10
 
-LaTeX Warning: File `spektrum_mittel_windowstief.png' not found on input line 2
-56.
-
-
-! Package pdftex.def Error: File `spektrum_mittel_windowstief.png' not found: u
-sing draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.256 ...th=12cm]{spektrum_mittel_windowstief.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[3]
-
-LaTeX Warning: File `spektrum_mittel_windowsrechts.png' not found on input line
- 262.
-
-
-! Package pdftex.def Error: File `spektrum_mittel_windowsrechts.png' not found:
- using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.262 ...=12cm]{spektrum_mittel_windowsrechts.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[4]
-
-LaTeX Warning: File `spektrum_mittel_windowslinks.png' not found on input line 
-268.
-
-
-! Package pdftex.def Error: File `spektrum_mittel_windowslinks.png' not found: 
-using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.268 ...h=12cm]{spektrum_mittel_windowslinks.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[5] [6] [7]
-Overfull \hbox (6.93353pt too wide) in paragraph at lines 316--316
-[]\T1/ptm/b/n/14.4 Quellcode Si-gnal Auf-neh-men, Trig-ger-funk-ti-on und Four-
-rier-trans-
- []
-
+]
+<2000.png, id=263, 433.62pt x 289.08pt>
+File: 2000.png Graphic file (type png)
+<use 2000.png>
+Package pdftex.def Info: 2000.png  used on input line 399.
+(pdftex.def)             Requested size: 341.43306pt x 227.63405pt.
+<2750.png, id=264, 433.62pt x 289.08pt>
+File: 2750.png Graphic file (type png)
+<use 2750.png>
+Package pdftex.def Info: 2750.png  used on input line 405.
+(pdftex.def)             Requested size: 341.43306pt x 227.63405pt.
+ [11 <./10.png> <./2000.png>]
+<4000.png, id=271, 433.62pt x 289.08pt>
+File: 4000.png Graphic file (type png)
+<use 4000.png>
+Package pdftex.def Info: 4000.png  used on input line 411.
+(pdftex.def)             Requested size: 341.43306pt x 227.63405pt.
+<5500.png, id=272, 433.62pt x 289.08pt>
+File: 5500.png Graphic file (type png)
+<use 5500.png>
+Package pdftex.def Info: 5500.png  used on input line 418.
+(pdftex.def)             Requested size: 341.43306pt x 227.63405pt.
+ [12 <./2750.png> <./4000.png>]
+<6000.png, id=279, 433.62pt x 289.08pt>
+File: 6000.png Graphic file (type png)
+<use 6000.png>
+Package pdftex.def Info: 6000.png  used on input line 425.
+(pdftex.def)             Requested size: 341.43306pt x 227.63405pt.
+<8000.png, id=280, 433.62pt x 289.08pt>
+File: 8000.png Graphic file (type png)
+<use 8000.png>
+Package pdftex.def Info: 8000.png  used on input line 432.
+(pdftex.def)             Requested size: 341.43306pt x 227.63405pt.
+ [13 <./5500.png> <./6000.png>] [14 <./8000.png>]
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2018/09/02 1.7 listings language file
 )
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 324.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 333.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 474.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 477.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 477.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 477.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 506.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-Overfull \hbox (32.26767pt too wide) in paragraph at lines 336--337
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
+) [15
 
-[8
+]
 
-] [9]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 412.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 412.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 412.
- [10] [11] 
 AED: lastpage setting LastPage
-[12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 537.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 537.
+[16]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 552.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 552.
  (SSS_Laborbericht.aux (preface/cover.aux) (preface/abstract.aux)
 (preface/tableofcontents.aux) (preface/listoffigures.aux)
 (preface/listoftables.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 537.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 537.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 552.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 552.
+Package rerunfilecheck Info: File `SSS_Laborbericht.out' has not changed.
+(rerunfilecheck)             Checksum: BF4E06B3D254A6264F5E4262F0640516;4516.
 
-
-Package rerunfilecheck Warning: File `SSS_Laborbericht.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `SSS_Laborbericht.out':
-(rerunfilecheck)             Before: B902E10FCFF6D97E229CFE75840CD66C;3460
-(rerunfilecheck)             After:  8AC82F765BF0C83AF041808818576B76;2885.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 537.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 552.
  ) 
 Here is how much of TeX's memory you used:
- 38348 strings out of 492970
- 813106 string characters out of 3135854
- 1175310 words of memory out of 3000000
- 41222 multiletter control sequences out of 15000+200000
- 67884 words of font info for 115 fonts, out of 3000000 for 9000
+ 38207 strings out of 492970
+ 811029 string characters out of 3135854
+ 1161206 words of memory out of 3000000
+ 41192 multiletter control sequences out of 15000+200000
+ 67263 words of font info for 113 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,12n,98p,715b,2210s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{table.caption.16} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.15} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.14} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.13} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.12} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.11} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.caption.10} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.17} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.3} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.2} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.1} has been referenced but does not exist
-, replaced by a fixed one
-
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/us
-yr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
-times/utmri8a.pfb>
-Output written on SSS_Laborbericht.pdf (17 pages, 167308 bytes).
+ 64i,12n,98p,890b,2083s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/u
+syr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on SSS_Laborbericht.pdf (22 pages, 293954 bytes).
 PDF statistics:
- 476 PDF objects out of 1000 (max. 8388607)
- 236 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 415 PDF objects out of 1000 (max. 8388607)
+ 124 named destinations out of 1000 (max. 500000)
+ 292 words of extra memory for PDF output out of 10000 (max. 10000000)
 

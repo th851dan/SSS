@@ -155,7 +155,7 @@
 %\newcommand{\strAuthorCEmail}{cauthor@htwg-konstanz.de}
 % Versuchsbeschreibung 
 \newcommand{\strTopic}{DIGITALISIERUNG}
-\newcommand{\strAbstract}{\qquad In diesem Versuch wird ein einfacher Spracherkenner aufgebaut, welcher nur vier einfache Befehle "Hoch", "Tief", "jvgvkuvjkkghk Fenster durchführen und daraus den Mittelwert abbilden. Mit diesen Referenzspektren und der Mustererkennung durch Korrelation(Korrelationskoeffizienten nach Bravais-Pearson) können das gesprochen Wort erkannt werden.}
+\newcommand{\strAbstract}{\qquad In diesem Versuch wird die Umwandlung von analogen in digitale Daten untersucht. Es wird die Eigenschaften wie Genauigkeit der AD - bzw. DA-Wandlung(der theoretische Quantisierungsfehler) , Zeitverhalten und Verhalten zwischen Abtastfrequenz und die von dem Generator erzeugte Frequenz(Abtasttheorem) untersucht und analysiert, indem 3 verschiedene Messgeräte benötigt werden. Um das Experiment zu realisieren, sollte ein Python-Programm mithilfe der Programmbibliothek RedLab-Python geschrieben und angewendet. }
 % hyperref customization
 \hypersetup{
 	pdftitle     = {\strTopic}, % title
@@ -234,16 +234,7 @@ Den Code davon bitte den Anhang A.1.1 sehen.
 %
 \chapter{Genauigkeit der AD-Wandlung}
 \section{Fragestellung, Messprinzip, Aufbau, Messmittel}
-\qquad In diesem Versuch wird die Genauigkeit der AD-Wandlung von 3 Messgeräten(Multifunktionsbox  ME-RedLab USB-1208LS, das hochgenaue Feinmessgerät Keithley TRMS 179 und das analoge Multimeter Philips PM 2503) ermittelt. Die Messgeräten werden mit Gleichspannungsquelle verbunden und die Spannung wird von 1 - 10 V in Schritten von 1 V variiert. Mithilfe des Python-Programms aus Versuch 1 werden die Messwerte von AD/DA-Wandlerkarte abgelesen. Bei Keithley TRMS 179 werden mithilfe eines Oszilloskop die Messwerte abgelesen. Und Bei Philips PM 2503 werden die Messwerte direkt auf dem Zeiger abgelesen. Mann nehmt die Werte von Feinmessgeräts als Referenz um Messfehlern zu berechnen. Daraus werden die Standardabweichungen der beiden Geräte bestimmen. Diese wird als  Genauigkeitsmaß benutzen.
-
-
-Zuerst wird der theoretische Quantisierungsfehler berechnet. 
-
-\begin{figure}[H]
-	\centering\small
-	\includegraphics[width=12cm]{spektrum_mittel_windowshoch.png}
-	\caption{Referenzspektrum von dem Befehl "Hoch"}
-\end{figure}
+\qquad In diesem Versuch wird die Genauigkeit der AD-Wandlung von 3 Messgeräten (Multifunktionsbox ME-RedLab USB-1208LS, das hochgenaue Feinmessgerät Keithley TRMS 179 und das analoge Multimeter Philips PM 2503) ermittelt. Die Messgeräten werden mit Gleichspannungsquelle verbunden und die Spannung wird von 1 - 10 V in Schritten von 1 V variiert. Mithilfe des Python-Programms aus Versuch 1 werden die Messwerte von AD/DA-Wandlerkarte abgelesen. Bei Keithley TRMS 179 werden aus dem Oszilloskop die Messwerte angezeigt. Und bei Philips PM 2503 werden die Messwerte direkt auf dem Zeiger abgelesen. Mann nimmt die Werte von Feinmessgeräts als Referenz um Messfehler zu berechnen. Daraus werden die Standardabweichungen der beiden Geräte bestimmt. Diese werden als  Genauigkeitsmaßs benutzen. Zudem wird der theoretische Quantisierungsfehler berechnet. 
 
 \section{Messwerte}
 \label{chap:VERSUCH_2_MESSWERTE}
@@ -251,7 +242,7 @@ Zuerst wird der theoretische Quantisierungsfehler berechnet.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|l|l|1|}
+\begin{tabular}{|l|l|l|l|}
 \hline
 \multicolumn{1}{|c|}{Spannung in V} & \multicolumn{1}{c|}{AD-Wandler}	& \multicolumn{1}{c|}{Philips}	& \multicolumn{1}{c|}{Keithley}								\\ \hline
 1						&$1,035156250$		&$1,09$			&$1,039$ 		\\ \hline
@@ -264,7 +255,6 @@ Zuerst wird der theoretische Quantisierungsfehler berechnet.
 8						&$8,066406250$		&$8,08$			&$8,022$		\\ \hline
 9						&$9,082031250$		&$9,09$			&$8,986$		\\ \hline
 10						&$9,980468750$		&$9,69$			&$9,999$		\\ \hline
-
 \end{tabular}
 \caption{Messwerte}
 \end{table}
@@ -272,30 +262,190 @@ Zuerst wird der theoretische Quantisierungsfehler berechnet.
 
 \label{chap:VERSUCH_2_AUSWERTUNG}
 
-\textit{Korrelationskoeffizient nach Bravais-Pearson:} $$r_{fg}=\frac{\sigma_{fg}}{\sigma_{f}\cdot\sigma_{g}}$$ indem $\sigma_{f}$ und $\sigma_{g}$ jeweils Standardabweichungen von den entsprechenden Signalen f und g sind, die nach der Formel berechnet: $$\sigma^2_f=\frac{1}{n-1}\sum_{k=1}^{n}(f_k-\mu_f)^2$$
-\qquad\textit{Die Kovarianz} $\sigma_{fg}$ ist für diskrete Signale definiert als:$$\sigma_{fg}=\frac{1}{n}\sum_{k=1}^{n}(f_k-\mu_f)\cdot(g_k-\mu_g)$$
-\qquad $\mu_f$ ist \textit{der Mittelwert:} $$\mu_f=\frac{1}{n}\sum_{k=1}^nf_k$$
+\qquad\textit{Der theoretische Quantisierungsfehler:} $$\Delta{U}=\frac{U_{max}-U_{min}}{2^n}$$ indem $U_{max}$ und $U_{min}$ jeweils die maximale und minimale Eingangsspannung in Volt sind, n ist die Gesamtzahl der darstellbaren Bits.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|l|}
-\hline
-\multicolumn{1}{|c|}{Befehl} & \multicolumn{1}{c|}{Sprecher 1}		& \multicolumn{1}{c|}{Sprecher 2}			\\ \hline
-Hoch						&$100\%$				&$100\%$				\\ \hline
-Tief						&$100\%$				&$80\%$					\\ \hline
-Links						&$100\%$				&$100\%$				\\ \hline
-Rechts						&$100\%$				&$80\%$					\\ \hline
-\end{tabular}
-\caption{Detektionsrate}
-\end{table}
+\qquad Die Quantisierungsfehler des 11-Bit-AD-Wandlers($-10V ... 10V$): $$\Delta{U}=0,00976563$$
+
+\qquad\textit{Die Standardabweichung der Messgeräten:} $$S=\sqrt{\frac{1}{n-1}\sum_{i=1}^n{e_i}^2}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n{(U_{i,ref}-U_i)}^2}$$ wobei die Werte des Feinmessgeräts als Referenz $U_{i,ref}$ genommen werden, $U_i$ sind die Messwerte der beiden anderen Messgeräten.
+
+\qquad Die Standardabweichungen des AD-Wandler und des analogen Multimeter Philips PM 2503 sind jeweils: $0,04245769$ und $0,11466424$
 
 
 
-Den Code davon bitte den Anhang A.1.3 und A.1.4 sehen.
+
+
+Den Code davon bitte den Anhang A.1.1.
 
 \section{Interpretation}
 \label{chap:VERSUCH_2_INTERPRETATION}
-\qquad Die Detektion besagt, dass beim Sprecher 1 100$\%$ das Wort korrekt erkannt wurde und beim Sprecher 2 ist abweichend bei der Erkennung der Befehle "Tief$"$ und "Rechts". Das ist total verständlich, weil der Sprecher 1 ist die Person, von der die Referenzspektren hergestellt wurden. Bei dem anderen Sprecher wurde die Befehlen manchmal falsch erkannt. Die Erklärung dafür ist aus den anatomischen Gründe, dass jede Person eigene Stimme und eigene Sprechweise(Akzent) hat. Die Fehlerrate ist nicht so hoch, da die Datenbank der Referenzspektrum noch ziemlich klein ist (von nur 4 Befehlen).
+\qquad Wegen des technischen Rauschen, Anzeigefehler und Parallaxenfehler sind die Messwerte von jedem Messgerät verschieden. Deswegen sind die Standardabweichungen voneinander unterschiedlich. Umso kleiner die Standardabweichung ist, desto näher liegen die Messwerte zusammen und sich den richtigen Wert nähert. Durch die Ergebnisse könnte bestimmt werden, dass der AD-Wandler bessere Messwerte als der von dem analogen Multimeter Philips PM 2503 liefert.
+
+\qquad Theoretisch sollte die Messfehler kleiner als 0,00976563 V sein(berechnet sind 11-Bit-AD-Wandler aber der Versuch wurde mit 16-Bit-AD-Wandler durchgeführt), aber laut der Formel entstammt dieser Wert(0,00976563 V) nur aus Quantisierungsfehler und die anderen Fehlerquelle(Rauschen, Anzeigefehler, Parallaxenfehler usw.) werden hierfür nicht berücksichtigt.
+
+
+
+%
+% CHAPTER Versuch 3
+%
+\chapter{Genauigkeit der DA-Wandlung}
+\section{Fragestellung, Messprinzip, Aufbau, Messmittel}
+\qquad In diesem Versuch wird die Genauigkeit der DA-Wandlung des Multifunktionsbox ME-Redlab USB-1208LS untersucht, indem die Werte von 0,5 - 5 V in 0,5 V Schritten mithilfe des Python-Programms in Konsole eingegeben werden. Die Messwerte sind in eine Tabelle einzutragen. Daraus wird die Standardabweichung bestimmt und mit dem theoretischen Quantisierungsfehler verglichen.
+
+Den Code davon bitte den Anhang A.1.1.
+
+\section{Messwerte}
+\label{chap:VERSUCH_3_MESSWERTE}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{1}{|c|}{Spannung in V} & \multicolumn{1}{c|}{DA-Wandler}		\\ \hline
+0,5						&$0,519$			\\ \hline
+1						&$1,08$				\\ \hline
+1,5						&$1,60$				\\ \hline
+2						&$2,12$				\\ \hline
+2,5						&$2,63$				\\ \hline
+3						&$3,13$				\\ \hline
+3,5						&$3,67$				\\ \hline
+4						&$4,18$				\\ \hline
+4,5						&$4,69$				\\ \hline
+5						&$5,17$				\\ \hline
+\end{tabular}
+\caption{Messwerte}
+\end{table}
+\section{Auswertung}
+
+\label{chap:VERSUCH_3_AUSWERTUNG}
+
+\qquad Der Quantisierungsfehler und die Standardabweichungen werden nach den Formeln aus Versuch 2 berechnet und beträgt:$$\Delta{U}=0,004882813$$ und $$S=0,14577799$$
+
+
+
+\section{Interpretation}
+\label{chap:VERSUCH_3_INTERPRETATION}
+\qquad Von der Auswertung kann es eingesehen werden, dass die Standardabweichung von der DA-Wandlung(0,14577799) größer als die von der AD-Wandlung(0,04245769). Das ist verständlich, da die Umwandlung von Analog in Digital immer genauer als die umgekehrte Umwandlung ist.
+
+
+
+%
+% CHAPTER Versuch 4
+%
+\chapter{Zeitverhalten der DA-Wandlung}
+\section{Fragestellung, Messprinzip, Aufbau, Messmittel}
+\qquad In diesem Versuch wird das Verhalten im Laufe der Zeit der DA-Wandlung untersucht, indem die Werte unter eine Sinusspannung sequentiell hintereinander auf die Karte ausgegeben werden. Es sollte beachtet werden, dass zwischen den einzelnen Ausgaben geeignete Pause einhalten müssen, um die Samplingrate des DA-Wandlers einzuhalten. Hier wurde 10ms als Pause gewählt.
+
+Den Code zum Generieren einer Sinusspannung bitte den Anhang A.1.2.
+
+\section{Messwerte}
+\label{chap:VERSUCH_4_MESSWERTE}
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{v4ori.png}
+	\caption{Erzeugte Sinusschwingung durch DA-Wandlung}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=15cm]{v4neu.png}
+	\caption{Abgeschnittene und vergrößerte Sinusschwingung}
+\end{figure}
+
+
+\section{Auswertung}
+
+\label{chap:VERSUCH_4_AUSWERTUNG}
+
+\qquad Wir haben das Programm modifiziert, dass zwischen den einzelnen Ausgaben keine Pausen entstehen sollten, um die Wirkung von der Pause auf die Samplingrate zu analysieren.
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=15cm]{v4ohne.png}
+	\caption{Erzeugte Sinusschwingung ohne Pause}
+\end{figure}
+
+Deutlich liefert es eine Sinusschwingung mit der größeren Frequenz als die von der mit Pause. Und die ohne Pause Schwingung hat mehr eckige Stelle in seiner Form(geringere Genauigkeit, da die Samplingrate von DA-Wandler nicht groß genug ist).
+
+
+\section{Interpretation}
+\label{chap:VERSUCH_4_INTERPRETATION}
+\qquad Allgemein sehen die beide Sinusspannung ähnlich wie eine tatsächliche Sinusschwingung aus. Der Unterschied liegt daran, dass das Signal bei der Umwandlung von Digital in Analog nie kontinuierlich richtig dargestellt wird. 
+
+
+
+%
+% CHAPTER Versuch 5
+%
+\chapter{Abtasttheorem}
+\section{Fragestellung, Messprinzip, Aufbau, Messmittel}
+\qquad In diesem Versuch wird die tatsächliche Abtastfrequenz des AD-Wandlers ermittelt. Dazu soll ein Abtastfrequenz im Intervall[6000,8000] ausgewählt und mit dem entsprechenden RedLab-Befehl an den AD-Wandler gegeben werden. Dazu wird auch die Nyquist-Frequenz bestimmt.
+
+Mit dem Sinusgenerator wird die Frequenz in 7 Schritten(angefangen von der halben Nyquist-Frequenz bis zur doppelten Nyquist-Frequenz) variiert und die Kurven davon grafisch darzustellen.
+
+Den Code davon bitte den Anhang A.1.3.
+\section{Messwerte}
+\label{chap:VERSUCH_5_MESSWERTE}
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{10.png}
+	\caption{Schwingung mit der Frequenz 10Hz}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{2000.png}
+	\caption{Schwingung mit der Frequenz 2000Hz}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{2750.png}
+	\caption{Schwingung mit der Frequenz 2750Hz}
+\end{figure}
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{4000.png}
+	\caption{Schwingung mit der Nyquist-Frequenz 4000Hz}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{5500.png}
+	\caption{Schwingung mit der Frequenz 5500Hz}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{6000.png}
+	\caption{Schwingung mit der Frequenz 6000Hz}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering\small
+	\includegraphics[width=12cm]{8000.png}
+	\caption{Schwingung mit der Abtastfrequenz 8000Hz}
+\end{figure}
+
+
+
+\section{Auswertung}
+
+\label{chap:VERSUCH_5_AUSWERTUNG}
+
+\qquad Hierfür wurde 8000 Hz als Abtastfrequenz ausgewählt. Die tatsächliche Abtastfrequenz des AD-Wandlers beträgt 8021 Hz. Die Nyquist-Frequenz ist halbe Abtastfrequenz(4000 Hz).
+
+\section{Interpretation}
+\label{chap:VERSUCH_5_INTERPRETATION}
+\qquad Nach dem Abtasttheorem sind die Sinusschwingungen mit der Frequenz unter Nyquist-Frequenz darstellbar. D.h. die Wellenform ist keine Sinusform mehr trotzdem bleibt die Frequenz erhalten. Eine Sinusschwingung mit der Frequenz höher als Nyquist-Frequenz aber kleiner als Abtastfrequenz wird nicht mehr fehlerfrei aus dem abgetasteten Signal rekonstruiert. Es wird so rekonstruiert als ob es eine Spiegelung an Nyquist-Frequenz stattfindet z.B. 6000 Hz(4000 Hz + 2000 Hz) ist die Spiegelung von 2000 Hz(4000 Hz - 2000 Hz). Deswegen sehen Abbildungen 5.2 und 5.6 / 5.1 und 5.7 fast gleichförmig aus.
+
+
 
 %
 % CHAPTER Anhang
@@ -313,7 +463,7 @@ Den Code davon bitte den Anhang A.1.3 und A.1.4 sehen.
 \section{Quellcode}
 \label{chap:APPENDIX_SOURCECODE}
 
-\subsection{Quellcode Signal Aufnehmen, Triggerfunktion und Fourriertransformation}
+\subsection{Quellcode Versuch 1-3}
 \label{chap:APPENDIX_SOURCECODE_V1}
 \begin{lstlisting}[
 style=PYTHON,
@@ -321,219 +471,84 @@ frame=single,
 caption=,
 captionpos=b,
 label=lst:V1]
-import pyaudio 
-import numpy as np
-import matplotlib.pyplot as plt
+import redlab as rl
+import matplotlib.pyplot as pl
 
-FORMAT = pyaudio.paInt16
-SAMPLEFREQ = 44100
-FRAMESIZE = 1024
-NOFFRAMES = 220
-INPUT_BLOCK_TIME = 0.05 
-INPUT_FRAMES_PER_BLOCK = int(SAMPLEFREQ*INPUT_BLOCK_TIME)
-p = pyaudio.PyAudio()
-print('running')
-stream = p.open(format=FORMAT,channels=1,rate=SAMPLEFREQ, input=True,frames_per_buffer=FRAMESIZE)
-data = stream.read(NOFFRAMES*FRAMESIZE) 
-decoded = np.fromstring(data, 'Int16')
-stream.stop_stream() 
-stream.close() 
-p.terminate() 
-print('done') 
-
-#######Signal speichern und darstellen########
-string = 'hoch1'
-np.save(string,decoded)
-sec = len(decoded) / SAMPLEFREQ
-plt.xlabel('Zeit in s')
-plt.ylabel('Amplitude')
-Zeit = []
-for i in range (len(decoded)):
-    Zeit.append(sec/len(decoded) * i)
-plt.plot(Zeit,decoded) 
-plt.show()
-
-####Signal mit Triggerfunktion abschneiden####
-trigger = 0.1 * np.max(decoded)
-j = 0
-for i in decoded:
-    j = j + 1
-    if np.abs(i) > trigger:
-        decoded = decoded[j:j+SAMPLEFREQ]
-        break
-np.save(string+'abgeschnitten',decoded)
-plt.xlabel('Zeit in s')
-plt.ylabel('Amplitude')
-Zeit = []
-for i in range (len(decoded)):
-    Zeit.append(1/len(decoded) * i)
-plt.plot(Zeit,decoded) 
-plt.show()
-
-###########Fourriertranformation###############
-spek = abs(np.fft.fft(decoded))
-plt.plot(spek)
-plt.savefig('Amplitudenspektrum.png')
+print("------- einzelne Werte -------------------------")
+print("16 Bit Value: " + str(rl.cbAIn(0,0,1)))
+print("Voltage Value: " + str(rl.cbVIn(0,0,1))) #Versuch2
+print("------- Messreihe -------------------------")
+a = rl.cbVInScan(0,0,0,1000,8000,1)
+print("Messreihe: " + str(a))
+pl.plot(a)
+pl.show()
+print("Messreihe: " + str(rl.cbVInScan(0,0,0,300,8000,1)))
+print("Samplerate: " + str(rl.cbInScanRate(0,0,0,8000)))
+###Konsoleneingaben### #versuch3
+x = input("Spannung:")
+x = float(x)
+rl.cbVOut(0,0,101,x) 
 \end{lstlisting}
 
-\subsection{Quellcode Windowing und Spektrum Versuch 1}
+\subsection{Quellcode Sinusschwingung-Generator Versuch4}
 \label{chap:APPENDIX_SOURCECODE_V1}
 \begin{lstlisting}[
 style=PYTHON,
 frame=single,
 caption=,
 captionpos=b,
-label=lst:V2]
+label=lst:V4]
+import redlab as rl
 import numpy as np
-import matplotlib.pyplot as plt
+import time
+import matplotlib.pyplot as pl
 
-def fft(data,name):
-    plt.figure(figsize=(9,6))
-    Y = abs(np.fft.fft(data))
-    Y = Y[range(int(len(Y)/2))]
-    x = np.linspace(0,22050,22050,endpoint = True)
-    plt.xlabel('Frequenz($Hertz$)')
-    plt.ylabel('Amplitude($Unit$)')
-    plt.plot(x,abs(Y))
-    plt.savefig(str(name)+".png")
-    plt.show()
-    
-def winspek(data,name):
-    plt.figure(figsize=(9,6))
-    plt.xlabel('Frequenz($Hertz$)')
-    plt.ylabel('Amplitude($Unit$)')
-    st = np.std(data)
-    from scipy import signal
-    gfen = signal.gaussian(512, std = st * 4)
-    g = np.zeros(len(data))
-    fft = np.zeros(len(data))
-    x = np.linspace(0,22050,22050,endpoint = True)
-    for i in range(0,len(data),256):
-        if (i > len(data) - 512):
-            gfen = signal.gaussian(len(data)-i, std = st * 4)
-            g[i:] = data[i:] * gfen
-            fft += abs(np.fft.fft(g))
-            a = np.fft.fft(g)
-            a = a[range(int(len(a)/2))]
-            plt.plot(x,abs(a))
-            break
-        g[i:i+512] = data[i:i+512] * gfen
-        fft += abs(np.fft.fft(g))
-        a = np.fft.fft(g)
-        a = a[range(int(len(a)/2))]
-        plt.plot(x,abs(a))
-        g = np.zeros(len(data))
-    plt.savefig("spektrum_gesamter_windows"+str(name)+".png")
-    plt.show()
-    fft /= 171 #durch die Anzahl der Windows teilen
-    fft = fft[range(int(len(fft)/2))]
-    plt.figure(figsize=(9,6))
-    plt.xlabel('Frequenz($Hertz$)')
-    plt.ylabel('Amplitude($Unit$)')
-    plt.plot(x,fft)
-    plt.savefig("spektrum_mittel_windows"+str(name)+".png")
-    return fft
-    
-data = np.load('was_cooles_abgeschnitten.npy')
-plt.figure(figsize=(9,6))
-plt.xlabel('Zeit in s')
-plt.ylabel('Amplitude')
-Zeit = []
-for i in range (len(data)):
-    Zeit.append(1/len(data) * i)
-plt.plot(Zeit,data)
-plt.savefig("v1_abgeschnitten.png")
-plt.show()
-fft(data,"Amplitudenspektrum")
-
-winspek(data,"v1")
+x = np.linspace(0,2 * np.pi,30, endpoint=False)
+print(np.sin(x))
+while(1):
+    for i in x:
+        rl.cbVOut(0,0,101,np.sin(i)+2)
+        time.sleep(0.01)
+        
+####für Darstellung###
+#v4 = np.genfromtxt("v4_Messwert.csv",delimiter=",",skip_header=17)
+#x = v4[1000:2250,3:4]
+#y = v4[1000:2250,4:5]
+#pl.figure(figsize=(11,6))
+#pl.xlabel('Zeit in s')
+#pl.ylabel('Spannung in V')
+#pl.plot(x,y)
+#pl.grid()
+#pl.savefig('v4neu.png')
+#pl.show()
 \end{lstlisting}
 
-\subsection{Quellcode Windowing und Referenzspektrum Versuch 2}
+\subsection{Quellcode Versuch 5}
 \label{chap:APPENDIX_SOURCECODE_V2}
 \begin{lstlisting}[
 style=PYTHON,
 frame=single,
 caption=,
 captionpos=b,
-label=lst:V2]
+label=lst:V5]
+import redlab as rl
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy import signal
+import matplotlib.pyplot as pl
 
-def winspek(data):
-    st = np.std(data)
-    gfen = signal.gaussian(512, std = st * 4)
-    g = np.zeros(len(data))
-    fft = np.zeros(len(data))
-    for i in range(0,len(data),256):
-        if (i > len(data) - 512):
-            break
-        g[i:i+512] = data[i:i+512] * gfen
-        fft += abs(np.fft.fft(g))
-        a = np.fft.fft(g)
-        a = a[range(int(len(a)/2))]
-        g = np.zeros(len(data))
+print("Samplerate: " + str(rl.cbInScanRate(0,0,0,8000)))
+a = rl.cbVInScan(0,0,0,1000,8000,1)
+np.save('5500Hz', a)
+
+index = [10,2000,2750,4000,5500,6000,8000]
+
+
+for i in index:
+    v5 = np.load(str(i)+'Hz.npy')
+    pl.plot(v5)
+    pl.savefig(str(i) + '.png')
+    pl.show()
     
-    fft /= 171 #durch die Anzahl der Windows teilen
-    fft = fft[range(int(len(fft)/2))]
-    return fft
-
-data = np.load('hoch1abgeschnitten.npy')
-mit =  np.zeros(int(len(data)/2))
-a = ['hoch', 'tief', 'rechts', 'links']
-for j in a:
-    mit = 0
-    for i in range(1,6):
-        data = np.load(j + str(i) + 'abgeschnitten.npy')
-        np.save('spek' + j + str(i),winspek(data))
-        mit+=winspek(data)
-    mit = mit/5
-    np.save('ref' + j,mit)
-    plt.figure(figsize=(9,6))
-    plt.xlabel('Frequenz($Hertz$)')
-    plt.ylabel('Amplitude($Unit$)')
-    plt.plot(mit)
-    plt.savefig("spektrum_mittel_windows" + j + ".png")
-    plt.show()
 \end{lstlisting}
-
-\subsection{Quellcode Korrelation und Spracherkenner Versuch 2}
-\label{chap:APPENDIX_SOURCECODE_V2}
-\begin{lstlisting}[
-style=PYTHON,
-frame=single,
-caption=,
-captionpos=b,
-label=lst:V2]
-import numpy as np
-
-refhoch = np.load('experiment 2a/refhoch.npy')
-reftief = np.load('experiment 2a/reftief.npy')
-refrechts = np.load('experiment 2a/refrechts.npy')
-reflinks = np.load('experiment 2a/reflinks.npy')
-def spracherkenner(name,person):
-    for i in range(1,6):
-        test = np.load('Spek/spek'+str(name)+str(i)+'t'+str(person)+'.npy')
-        korrcoefh = np.corrcoef(refhoch, y = test)
-        korrcoeft = np.corrcoef(reftief, y = test)
-        korrcoefr = np.corrcoef(refrechts, y = test)
-        korrcoefl = np.corrcoef(reflinks, y = test)
-        a = np.max([np.mean(korrcoefh), np.mean(korrcoeft), np.mean(korrcoefr), np.mean(korrcoefl)])
-        if a == np.mean(korrcoefh):
-            print('hoch')
-        elif a == np.mean(korrcoeft):
-            print('tief')
-        elif a == np.mean(korrcoefr):
-            print('rechts')
-        elif a == np.mean(korrcoefl):
-            print('links')
-            
-spracherkenner('links','p')
-print("----")
-spracherkenner('links','s')
-\end{lstlisting}
-
 \end{document}
 %------------------------------------
 % ╔═╗╔╗╔╔╦╗  ╔╦╗╔═╗╔═╗╦  ╦╔╦╗╔═╗╔╗╔╔╦╗
